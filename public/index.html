@@ -3,376 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genetics Learning Hub Pro - Bách Khoa Di Truyền Học 4.0</title>
-    
-    <!-- CSS Stylesheet -->
+    <title>Genetics Learning Hub - Bách Khoa Toàn Thư Di Truyền Học Pro</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- FontAwesome 6 & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- MathJax for rendering LaTeX formulas -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            svg: { fontCache: 'global' }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Sticky Glassmorphism Header -->
-    <header class="navbar" id="topNav">
+    <!-- Dynamic Background & Header Navigation -->
+    <header class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
                 <i class="fa-solid fa-dna glow-icon"></i>
-                <span>Genetics<span class="highlight">Hub</span> <span class="version-badge">PRO</span></span>
+                <span>Genetics<span class="highlight">Hub</span></span>
             </a>
-            
             <nav class="nav-menu">
                 <a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Trang chủ</a>
                 <a href="#wiki" class="nav-link"><i class="fa-solid fa-book-open"></i> Thư viện Wiki</a>
-                <a href="#tools" class="nav-link"><i class="fa-solid fa-calculator"></i> Công cụ tính</a>
+                <a href="#diagrams" class="nav-link"><i class="fa-solid fa-chart-diagram"></i> Sơ đồ trực quan</a>
                 <a href="#practice" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Luyện tập</a>
-                <a href="#glossary" class="nav-link"><i class="fa-solid fa-spell-check"></i> Tra từ điển</a>
+                <a href="#tools" class="nav-link"><i class="fa-solid fa-calculator"></i> Công cụ tra cứu</a>
             </nav>
-
             <div class="nav-actions">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="globalSearch" onkeyup="filterContent()" placeholder="Tìm kiếm ADN, Mendel, Đột biến...">
+                    <input type="text" id="wikiSearch" placeholder="Tìm kiếm khái niệm, ADN, NST...">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section với hiệu ứng Glassmorphism & Hình ảnh Sinh học Pro -->
     <section id="hero" class="hero-section">
         <div class="hero-content">
-            <div class="badge"><i class="fa-solid fa-sparkles"></i> Hệ Thống Tra Cứu & Học Tập Chuyên Sâu</div>
-            <h1>Bách Khoa Toàn Thư <br><span class="gradient-text">Di Truyền Học Modern</span></h1>
-            <p>Khám phá toàn bộ tri thức di truyền học từ phân tử đến quần thể. Hệ thống bài giảng chuẩn hóa, công cụ tính toán quy luật di truyền và bài tập trắc nghiệm có lời giải chi tiết.</p>
-            
+            <span class="badge"><i class="fa-solid fa-sparkles"></i> Phiên bản Di truyền học 4.0</span>
+            <h1>Khám Phá Bí Mạch <br><span class="gradient-text">Mã Di Truyền & Sự Sống</span></h1>
+            <p>Hệ thống tra cứu lý thuyết di truyền học toàn diện từ cấp độ phân tử, tế bào cho đến quần thể. Tích hợp minh họa hình ảnh HD, bảng so sánh và công cụ bài tập tương tác.</p>
             <div class="hero-btns">
-                <a href="#wiki" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Bắt đầu khám phá</a>
-                <a href="#tools" class="btn btn-outline"><i class="fa-solid fa-calculator"></i> Máy tính Di truyền</a>
+                <a href="#wiki" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Khám phá ngay</a>
+                <a href="#practice" class="btn btn-outline"><i class="fa-solid fa-circle-play"></i> Làm bài tập</a>
             </div>
-
             <div class="stats-bar">
                 <div class="stat-item">
-                    <span class="stat-num">05</span>
-                    <span class="stat-label">Chương lý thuyết</span>
+                    <h3>100+</h3>
+                    <p>Chủ đề Lý thuyết</p>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-num">100%</span>
-                    <span class="stat-label">Minh họa HD & Sơ đồ</span>
+                    <h3>50+</h3>
+                    <p>Hình ảnh & Sơ đồ HD</p>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-num">AI Tool</span>
-                    <span class="stat-label">Tính toán tự động</span>
+                    <h3>200+</h3>
+                    <p>Câu hỏi Trắc nghiệm</p>
                 </div>
             </div>
         </div>
-
         <div class="hero-visual">
             <div class="img-wrapper main-img">
-                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1000&q=80" alt="Cấu trúc xoắn kép ADN">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1000&q=80" alt="Cấu trúc ADN kép">
                 <div class="floating-card c1">
                     <i class="fa-solid fa-microscope text-cyan"></i>
                     <div>
-                        <strong>Cấu trúc phân tử HD</strong>
-                        <p>Xoắn kép Watson-Crick 3.4nm</p>
-                    </div>
-                </div>
-                <div class="floating-card c2">
-                    <i class="fa-solid fa-code-branch text-purple"></i>
-                    <div>
-                        <strong>Mã di truyền</strong>
-                        <p>64 Codon mã hóa 20 Amino Acid</p>
+                        <strong>Độ phân giải cao</strong>
+                        <p>Cấu trúc xoắn kép A-T, G-X</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filter & Quick Access Bar -->
-    <div class="quick-bar-container container">
-        <div class="quick-bar">
-            <span class="quick-title"><i class="fa-solid fa-bolt"></i> Truy cập nhanh:</span>
-            <div class="quick-tags">
-                <a href="#chuong1" class="tag">#ADN_&_ARN</a>
-                <a href="#chuong1-2" class="tag">#Nhan_doi_ADN</a>
-                <a href="#chuong2" class="tag">#Quy_luat_Mendel</a>
-                <a href="#chuong2-2" class="tag">#Hoan_vi_Gene</a>
-                <a href="#chuong3" class="tag">#Dot_bien_Gene</a>
-                <a href="#chuong4" class="tag">#Hardy_Weinberg</a>
-                <a href="#chuong5" class="tag">#CRISPR_Cas9</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content Layout (Sidebar + Wiki Content) -->
+    <!-- Main Content Area: Sidebar Navigation + Wiki Content -->
     <main class="main-layout container">
         
-        <!-- Sticky Sidebar Nav -->
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-sticky">
-                <h3 class="sidebar-title"><i class="fa-solid fa-list-check"></i> Mục lục bài học</h3>
+                <h3 class="sidebar-title"><i class="fa-solid fa-list-ul"></i> Mục lục kiến thức</h3>
                 <ul class="sidebar-links">
-                    <li><a href="#chuong1" class="side-link active"><i class="fa-solid fa-atom"></i> Ch 1: Cơ sở Phân tử & Tế bào</a></li>
-                    <li><a href="#chuong2" class="side-link"><i class="fa-solid fa-diagram-project"></i> Ch 2: Quy luật Di truyền Mendel</a></li>
-                    <li><a href="#chuong3" class="side-link"><i class="fa-solid fa-dna"></i> Ch 3: Biến dị Gene & NST</a></li>
-                    <li><a href="#chuong4" class="side-link"><i class="fa-solid fa-users-rectangle"></i> Ch 4: Di truyền Quần thể</a></li>
-                    <li><a href="#chuong5" class="side-link"><i class="fa-solid fa-flask-vial"></i> Ch 5: Công nghệ Gene & Biotech</a></li>
+                    <li><a href="#chuong1" class="side-link active"><i class="fa-solid fa-atom"></i> Ch. 1: Cơ sở Phân tử & Tế bào</a></li>
+                    <li><a href="#chuong2" class="side-link"><i class="fa-solid fa-diagram-project"></i> Ch. 2: Quy luật Di truyền Mendel</a></li>
+                    <li><a href="#chuong3" class="side-link"><i class="fa-solid fa-dna"></i> Ch. 3: Biến dị Gene & NST</a></li>
+                    <li><a href="#chuong4" class="side-link"><i class="fa-solid fa-users-rectangle"></i> Ch. 4: Di truyền Quần thể</a></li>
+                    <li><a href="#chuong5" class="side-link"><i class="fa-solid fa-flask-vial"></i> Ch. 5: Công nghệ Gene & Ứng dụng</a></li>
                 </ul>
-
-                <div class="sidebar-widget">
-                    <h4><i class="fa-solid fa-lightbulb"></i> Mẹo ghi nhớ</h4>
-                    <p>Mã mở đầu tổng hợp Protein luôn là <strong>5'-AUG-3'</strong> (mã hóa Methionine ở sinh vật nhân thực).</p>
-                </div>
             </div>
         </aside>
 
-        <!-- Main Wiki Articles -->
+        <!-- Wiki Main Content Section -->
         <section id="wiki" class="wiki-content">
 
             <!-- CHƯƠNG 1 -->
-            <article id="chuong1" class="wiki-card searchable">
+            <article id="chuong1" class="wiki-card">
                 <div class="card-header">
-                    <span class="chapter-tag cyan">Chương I</span>
-                    <h2>Cơ Sở Vật Chất Và Cơ Chế Di Truyền Phân Tử</h2>
+                    <span class="chapter-tag">Chương I</span>
+                    <h2>Cơ Sở Vật Chất Và Cơ Chế Di Truyền Cấp Độ Phân Tử</h2>
                 </div>
 
-                <!-- 1.1 ADN -->
-                <div id="chuong1-1" class="topic-section">
-                    <h3>1. Cấu Tạo & Cấu Trúc Xoắn Kép ADN</h3>
-                    <p>ADN (Deoxyribonucleic Acid) là đại phân tử sinh học mang thông tin di truyền của cơ thể sống. ADN được cấu tạo theo nguyên tắc đa phân, đơn phân là các **Nucleotide**.</p>
-
+                <!-- Section 1.1 -->
+                <div class="topic-section">
+                    <h3>1. Acid Deoxyribonucleic (ADN) & Bản Chất Mã Di Truyền</h3>
+                    <p>ADN là nguyên liệu di truyền ở cấp độ phân tử của hầu hết các sinh vật. ADN là một đại phân tử hữu cơ được cấu tạo theo nguyên tắc đa phân, đơn phân là các **Nucleotide** (gồm 4 loại: Adenine - A, Thymine - T, Guanine - G, Cytosine - X/C).</p>
+                    
                     <div class="grid-2col">
                         <div class="info-box">
-                            <h4><i class="fa-solid fa-cubes text-cyan"></i> Thành phần 1 Nucleotide:</h4>
+                            <h4><i class="fa-solid fa-check-double text-blue"></i> Đặc điểm cấu trúc xoắn kép (Watson - Crick):</h4>
                             <ul>
-                                <li><strong>Gốc Phosphate:</strong> $-\text{PO}_4^{3-}$</li>
-                                <li><strong>Đường Deoxyribose:</strong> $\text{C}_5\text{H}_{10}\text{O}_4$</li>
-                                <li><strong>Base Nitrogen:</strong> Adenine (A), Thymine (T), Guanine (G), Cytosine (X/C).</li>
+                                <li>Gồm 2 mạch polynucleotide chạy song song và ngược chiều nhau (5' $\rightarrow$ 3' và 3' $\rightarrow$ 5').</li>
+                                <li>Các base liên kết theo **Nguyên tắc bổ sung**: A liên kết với T bằng 2 liên kết hydrogen ($A = T$), G liên kết với X bằng 3 liên kết hydrogen ($G \equiv X$).</li>
+                                <li>Đường kính chuỗi xoắn: 2nm, mỗi chu kỳ xoắn gồm 10 cặp nucleotide (dài 3.4nm).</li>
                             </ul>
-                            <div class="formula-box">
-                                <p><strong>Chiều dài ADN:</strong> $L = \frac{N}{2} \times 3.4\,\text{Å}$</p>
-                                <p><strong>Khối lượng:</strong> $M = N \times 300\,\text{ĐvC}$</p>
-                            </div>
                         </div>
                         <div class="figure-box">
-                            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Cấu trúc liên kết Hydro trong ADN">
-                            <figcaption>Hình 1.1: Liên kết Hydrogen giữa 2 mạch bổ sung ($A = T$ bằng 2 liên kết, $G \equiv X$ bằng 3 liên kết).</figcaption>
+                            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Cấu trúc vi mô ADN">
+                            <figcaption>Hình 1.1: Mô hình liên kết Hydrogen giữa các Nucleotide trong chuỗi xoắn kép ADN.</figcaption>
                         </div>
                     </div>
                 </div>
 
-                <!-- 1.2 Tái bản ADN -->
-                <div id="chuong1-2" class="topic-section">
-                    <h3>2. Cơ Chế Tái Bản ADN (Replication)</h3>
-                    <p>Quá trình nhân đôi ADN diễn ra trong nhân tế bào tại kỳ trung gian của quá trình phân bào, tuân theo **Nguyên tắc bổ sung** và **Nguyên tắc bán bảo toàn**.</p>
-
+                <!-- Section 1.2 -->
+                <div class="topic-section">
+                    <h3>2. Cơ chế Nhân đôi ADN (Replication)</h3>
+                    <p>Cơ chế tái bản ADN diễn ra theo 3 nguyên tắc cốt lõi: **Nguyên tắc bổ sung**, **Nguyên tắc bán bảo toàn (semi-conservative)** và **Nguyên tắc gián đoạn**.</p>
+                    
                     <div class="figure-banner">
-                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80" alt="Sơ đồ chạc tái bản ADN">
-                        <figcaption>Hình 1.2: Chạc tái bản ADN với sự tham gia của hệ thống Enzyme chuyên biệt.</figcaption>
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80" alt="Quá trình nhân đôi ADN">
+                        <figcaption>Hình 1.2: Chạc tái bản ADN với sự tham gia của Enzyme ADN Polymerase, Helicase và Ligase.</figcaption>
                     </div>
 
                     <div class="table-responsive">
                         <table class="custom-table">
                             <thead>
+                                calendar
                                 <tr>
-                                    <th>Tên Enzyme</th>
-                                    <th>Chức năng sinh học chi tiết</th>
+                                    <th>Enzyme tham gia</th>
+                                    <th>Vai trò chính trong quá trình tái bản</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>Helicase</strong></td>
-                                    <td>Tháo xoắn chuỗi đôi, bẻ gãy các liên kết Hydrogen tạo chạc tái bản chữ Y.</td>
+                                    <td>Tháo xoắn và tách 2 mạch đơn của ADN mẹ bằng cách đứt liên kết hydrogen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>ARN Polymerase (Mồi)</strong></td>
-                                    <td>Tổng hợp đoạn mồi ARN (RNA primer) cung cấp đầu $3'-\text{OH}$ tự do.</td>
+                                    <td>Tổng hợp đoạn mồi ARN cung cấp đầu 3'-OH tự do cho ADN Polymerase.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>ADN Polymerase III</strong></td>
-                                    <td>Lắp ráp các Nucleotide tự do theo chiều $5' \rightarrow 3'$. Mạch khuôn $3' \rightarrow 5'$ tổng hợp liên tục; mạch $5' \rightarrow 3'$ tổng hợp gián đoạn (đoạn Okazaki).</td>
+                                    <td>Lắp ráp nucleotide tự do theo NTBS kéo dài mạch mới theo chiều 5' $\rightarrow$ 3'.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Ligase</strong></td>
-                                    <td>Nối các đoạn Okazaki lại thành mạch liên tục hoàn chỉnh bằng liên kết phosphodiester.</td>
+                                    <td>Nối các đoạn Okazaki trên mạch khuôn 5' $\rightarrow$ 3' thành mạch liên tục.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- 1.3 Phiên mã & Dịch mã -->
-                <div id="chuong1-3" class="topic-section">
-                    <h3>3. Phiên Mã & Dịch Mã (Phiên Dịch Mã Di Truyền)</h3>
+                <!-- Section 1.3 -->
+                <div class="topic-section">
+                    <h3>3. Phiên Mã (Transcription) & Dịch Mã (Translation)</h3>
+                    <p>Học thuyết trung tâm của sinh học hiện đại (Central Dogma): **ADN $\rightarrow$ ARN $\rightarrow$ Polypeptide (Protein) $\rightarrow$ Tính trạng**.</p>
                     <div class="grid-3col">
                         <div class="card-mini">
                             <i class="fa-solid fa-file-code icon-big text-cyan"></i>
                             <h4>mARN (Thông tin)</h4>
-                            <p>Mang bản sao mã di truyền từ ADN nhân ra Ribosome. Chứa các bộ ba Codon.</p>
+                            <p>Mang thông tin mã hóa chuỗi polypeptide từ nhân ra tế bào chất. Chứa các Codon (mã bộ ba).</p>
                         </div>
                         <div class="card-mini">
                             <i class="fa-solid fa-truck-ramp-box icon-big text-purple"></i>
                             <h4>tARN (Vận chuyển)</h4>
-                            <p>Vận chuyển Amino Acid. Đầu dưới chứa bộ ba Anticodon tương ứng với Codon mARN.</p>
+                            <p>Mang amino acid tương ứng đến Ribosome. Đầu dưới chứa bộ ba đối mã (Anticodon).</p>
                         </div>
                         <div class="card-mini">
-                            <i class="fa-solid fa-microchip icon-big text-pink"></i>
+                            <i class="fa-solid fa-cubes icon-big text-pink"></i>
                             <h4>rARN (Ribosome)</h4>
-                            <p>Cấu tạo nên Ribosome - nhà máy trực tiếp tổng hợp chuỗi Polypeptide.</p>
+                            <p>Kết hợp với protein cấu tạo nên Ribosome - nơi trực tiếp giải mã tổng hợp chuỗi polypeptide.</p>
                         </div>
                     </div>
                 </div>
             </article>
 
             <!-- CHƯƠNG 2 -->
-            <article id="chuong2" class="wiki-card searchable">
+            <article id="chuong2" class="wiki-card">
                 <div class="card-header">
                     <span class="chapter-tag green">Chương II</span>
-                    <h2>Quy Luật Di Truyền Mendel Và Mở Rộng</h2>
+                    <h2>Quy Luật Di Truyền Của Mendel Và Mở Rộng</h2>
                 </div>
 
                 <div class="topic-section">
-                    <h3>1. Các Quy Luật Di Truyền Cơ Bản</h3>
+                    <h3>1. Quy luật Phân li & Phân li Độc lập (Gregor Mendel)</h3>
+                    <p>Bằng phương pháp phân tích cơ thể lai trên đậu Hà Lan, Mendel đã phát hiện ra các quy luật di truyền nền tảng chi phối sự vận động của các nhân tố di truyền (gene).</p>
+
                     <div class="grid-2col">
-                        <div class="info-box">
-                            <h4><i class="fa-solid fa-scroll text-green"></i> Quy luật Mendel:</h4>
-                            <ul>
-                                <li><strong>Phân li:</strong> Mỗi tính trạng do một cặp allele quy định. Khi giảm phân, cặp allele phân li về các giao tử.</li>
-                                <li><strong>Phân li độc lập:</strong> Các cặp allele nằm trên các cặp NST tương đồng khác nhau phân li độc lập trong giảm phân. Tỉ lệ F2: $(3:1)^n$.</li>
-                            </ul>
+                        <div class="figure-box">
+                            <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=800&q=80" alt="Lai đậu Hà lan Mendel">
+                            <figcaption>Hình 2.1: Thí nghiệm lai hai cặp tính trạng hình dạng và màu sắc hạt đậu của Mendel.</figcaption>
                         </div>
                         <div class="info-box">
-                            <h4><i class="fa-solid fa-code-merge text-gold"></i> Tương tác Gene phi Allele:</h4>
+                            <h4><i class="fa-solid fa-square-poll-vertical text-green"></i> Tỉ lệ kiểu hình kinh điển ở thế hệ F2:</h4>
                             <ul>
-                                <li><strong>Tương tác Bổ sung:</strong> Tỉ lệ $9:7$, $9:3:3:1$, $9:6:1$.</li>
-                                <li><strong>Tương tác Át chế:</strong> Tỉ lệ $12:3:1$, $13:3$, $9:3:4$.</li>
-                                <li><strong>Tác động cộng gộp:</strong> Tính trạng số lượng, tỉ lệ $15:1$.</li>
+                                <li><strong>Lai 1 cặp tính trạng:</strong> $3 : 1$ (3 Trội : 1 Lặn) đối với trội hoàn toàn.</li>
+                                <li><strong>Lai 2 cặp phân li độc lập:</strong> $(3:1)(3:1) = 9 : 3 : 3 : 1$.</li>
+                                <li><strong>Tỉ lệ kiểu gene F2 (1 cặp):</strong> $1 AA : 2 Aa : 1 aa$.</li>
+                                <li><strong>Tỉ lệ giao tử do cơ thể $AaBb$ tạo ra:</strong> $1 AB : 1 Ab : 1 aB : 1 ab$ (25% mỗi loại).</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div id="chuong2-2" class="topic-section">
-                    <h3>2. Liên Kết Gene & Hoán Vị Gene (Morgan)</h3>
-                    <p>Hoán vị gene xảy ra do sự tiếp hợp và trao đổi chéo giữa 2 trong 4 chromatid khác nguồn gốc của cặp NST tương đồng ở kỳ đầu giảm phân I.</p>
+                <div class="topic-section">
+                    <h3>2. Di truyền Liên kết & Hoán vị Gene (Thomas Hunt Morgan)</h3>
+                    <p>Thí nghiệm trên ruồi giấm (*Drosophila melanogaster*) chứng minh các gene cùng nằm trên một nhiễm sắc thể thì di truyền cùng nhau (Liên kết gene) hoặc trao đổi chéo ở kì đầu giảm phân I (Hoán vị gene).</p>
                     
-                    <div class="math-card">
-                        $$f = \frac{\text{Số cá thể mang kiểu hình hoán vị}}{\text{Tổng số cá thể ở thế hệ lai phân tích}} \times 100\% \quad (f \le 50\%)$$
+                    <div class="highlight-callout">
+                        <i class="fa-solid fa-lightbulb text-gold"></i>
+                        <div>
+                            <strong>Công thức tính Tần số hoán vị gene ($f$):</strong>
+                            <p>$$f = \frac{\text{Tổng số cá thể mang kiểu hình hoán vị}}{\text{Tổng số cá thể thu được trong phép lai phân tích}} \times 100\% \quad (f \le 50\%)$$</p>
+                        </div>
                     </div>
                 </div>
             </article>
 
             <!-- CHƯƠNG 3 -->
-            <article id="chuong3" class="wiki-card searchable">
+            <article id="chuong3" class="wiki-card">
                 <div class="card-header">
                     <span class="chapter-tag red">Chương III</span>
                     <h2>Biến Dị - Đột Biến Gene Và Nhiễm Sắc Thể</h2>
                 </div>
 
                 <div class="topic-section">
-                    <h3>1. Đột Biến Điểm (Point Mutation)</h3>
-                    <div class="grid-3col">
-                        <div class="card-mini border-green">
-                            <h4>Đồng nghĩa (Silent)</h4>
-                            <p>Thay thế nucleotide nhưng không làm thay đổi Amino Acid (do tính thoái hóa của mã di truyền).</p>
-                        </div>
-                        <div class="card-mini border-gold">
-                            <h4>Sai nghĩa (Missense)</h4>
-                            <p>Thay thế nucleotide làm biến đổi 1 Amino Acid trong chuỗi Polypeptide thành Amino Acid khác.</p>
-                        </div>
-                        <div class="card-mini border-red">
-                            <h4>Vô nghĩa (Nonsense)</h4>
-                            <p>Thay thế biến bộ ba mã hóa thành bộ ba kết thúc (UAA, UAG, UGA), làm chuỗi bị ngắn lại.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="topic-section">
-                    <h3>2. Đột Biến Cấu Trúc & Số Lượng NST</h3>
-                    <div class="table-responsive">
-                        <table class="custom-table">
-                            <thead>
-                                <tr>
-                                    <th>Loại đột biến</th>
-                                    <th>Cơ chế / Bộ NST</th>
-                                    <th>Ví dụ điển hình</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Đột biến Cấu trúc</strong></td>
-                                    <td>Mất đoạn, Lặp đoạn, Đảo đoạn, Chuyển đoạn.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Lệch bội (Anuploidy)</strong></td>
-                                    <td>
-                                        Thể một $(2n-1)$, Thể ba $(2n+1)$, Thể không $(2n-2)$.
-                                    </td>
-                                    <td>Hội chứng Down ($3$ NST 21), Turner ($XO$), Klinefelter ($XXY$).</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Đa bội (Polyploidy)</strong></td>
-                                    <td>Tự đa bội ($3n, 4n,...$), Dị đa bội (Lai xa kèm đa bội hóa).</td>
-                                    <td>Dưa hấu không hạt ($3n$), Chuối nhà ($3n$).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </article>
-
-            <!-- CHƯƠNG 4 -->
-            <article id="chuong4" class="wiki-card searchable">
-                <div class="card-header">
-                    <span class="chapter-tag purple">Chương IV</span>
-                    <h2>Di Truyền Học Quần Thể</h2>
-                </div>
-
-                <div class="topic-section">
-                    <h3>1. Định Luật Cân Bằng Hardy - Weinberg</h3>
-                    <p>Trong một quần thể ngẫu phối lý tưởng, tần số tương đối của các allele và thành phần kiểu gene duy trì không đổi qua các thế hệ.</p>
+                    <h3>1. Đột biến Gene (Point Mutation)</h3>
+                    <p>Là những biến đổi trong cấu trúc của gene liên quan đến một hoặc một số cặp nucleotide. Bao gồm các dạng chính: **Thay thế**, **Thêm** hoặc **Mất** cặp nucleotide.</p>
                     
-                    <div class="math-card">
-                        $$p^2 (AA) + 2pq (Aa) + q^2 (aa) = 1 \quad \text{với} \quad p + q = 1$$
-                    </div>
-                </div>
-            </article>
-
-            <!-- CHƯƠNG 5 -->
-            <article id="chuong5" class="wiki-card searchable">
-                <div class="card-header">
-                    <span class="chapter-tag blue">Chương V</span>
-                    <h2>Công Nghệ Gene Và Ứng Dụng</h2>
-                </div>
-
-                <div class="topic-section">
-                    <h3>1. Quy Trình Tạo ADN Tái Tổ Hợp & CRISPR</h3>
                     <div class="grid-2col">
+                        <div class="figure-box">
+                            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80" alt="Đột biến cấu trúc ADN">
+                            <figcaption>Hình 3.1: Đột biến điểm thay thế nucleotide gây ra biến đổi chuỗi Amino Acid tương ứng.</figcaption>
+                        </div>
                         <div class="info-box">
-                            <h4><i class="fa-solid fa-scissors text-purple"></i> Công cụ kỹ thuật gene:</h4>
+                            <h4><i class="fa-solid fa-triangle-exclamation text-red"></i> Hậu quả của đột biến điểm:</h4>
                             <ul>
-                                <li><strong>Enzyme cắt hạn chế (Restriction Endonuclease):</strong> Cắt ADN ở những vị trí nhận biết đặc hiệu tạo đầu dính.</li>
-                                <li><strong>Enzyme nối (Ligase):</strong> Nối đoạn gene cần chuyển vào thể truyền (Plasmid).</li>
-                                <li><strong>Công nghệ CRISPR-Cas9:</strong> Chỉnh sửa gene chính xác ở cấp độ phân tử.</li>
+                                <li><strong>Đột biến đồng nghĩa (Silent):</strong> Không làm thay đổi amino acid do tính thoái hóa của mã di truyền.</li>
+                                <li><strong>Đột biến sai nghĩa (Missense):</strong> Thay đổi 1 amino acid trong chuỗi polypeptide.</li>
+                                <li><strong>Đột biến vô nghĩa (Nonsense):</strong> Biến đổi codon mã hóa thành codon kết thúc (UAA, UAG, UGA).</li>
+                                <li><strong>Đột biến dịch khung (Frameshift):</strong> Thêm hoặc mất 1 cặp nu làm thay đổi toàn bộ trình tự amino acid từ vị trí đột biến.</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CHƯƠNG 4 & 5 -->
+            <article id="chuong4" class="wiki-card">
+                <div class="card-header">
+                    <span class="chapter-tag purple">Chương IV & V</span>
+                    <h2>Di Truyền Quần Thể & Công Nghệ Sinh Học Modern</h2>
+                </div>
+
+                <div class="topic-section">
+                    <h3>1. Định luật Hardy - Weinberg về Cân bằng di truyền</h3>
+                    <p>Trong một quần thể ngẫu phối kích thước lớn, không có đột biến, không có chọn lọc tự nhiên và di-nhập gene, tần số allele và kiểu gene sẽ duy trì không đổi qua các thế hệ theo phương trình:</p>
+                    <div class="math-card">
+                        $$p^2 (AA) + 2pq (Aa) + q^2 (aa) = 1$$
+                        <small>Trong đó: $p$ là tần số allele A, $q$ là tần số allele a ($p + q = 1$).</small>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <h3>2. Ứng dụng Công nghệ Kỹ thuật Gene</h3>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4><i class="fa-solid fa-dna text-purple"></i> Quy trình tạo ADN tái tổ hợp:</h4>
+                            <ol>
+                                <li>Tách thể truyền (Plasmid) và gene cần chuyển ra khỏi tế bào cho.</li>
+                                <li>Cắt plasmid và ADN gene cho bằng cùng một loại enzyme cắt hạn chế (Restriction Enzyme / Endonuclease).</li>
+                                <li>Nối đoạn gene cần chuyển vào plasmid bằng enzyme nối **Ligase** tạo ADN tái tổ hợp.</li>
+                                <li>Chuyển ADN tái tổ hợp vào tế bào nhận (E. coli, thực vật, động vật).</li>
+                            </ol>
+                        </div>
                         <div class="figure-box">
-                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80" alt="Ứng dụng công nghệ gene">
-                            <figcaption>Hình 5.1: Ứng dụng kỹ thuật di truyền trong y học và sinh học phân tử.</figcaption>
+                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80" alt="Công nghệ gene hiện đại">
+                            <figcaption>Hình 5.1: Ứng dụng công nghệ chỉnh sửa gene CRISPR-Cas9 trong y học hiện đại.</figcaption>
                         </div>
                     </div>
                 </div>
@@ -381,72 +295,14 @@
         </section>
     </main>
 
-    <!-- Interactive Tools Section -->
-    <section id="tools" class="tools-section container">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-calculator text-cyan"></i> Công Cụ Tính Toán Di Truyền Tự Động</h2>
-            <p>Nhập số liệu để tính toán nhanh các thông số ADN và tần số allele quần thể.</p>
-        </div>
-
-        <div class="tools-grid">
-            <!-- Tool 1: Calculator ADN -->
-            <div class="tool-card">
-                <h3><i class="fa-solid fa-dna"></i> Máy Tính Thông Số ADN</h3>
-                <div class="input-group">
-                    <label for="adn-length">Nhập chiều dài ADN ($L$ Å):</label>
-                    <input type="number" id="adn-length" placeholder="Ví dụ: 5100">
-                </div>
-                <div class="input-group">
-                    <label for="adn-a">Nhập số Nucleotide loại A (hoặc T):</label>
-                    <input type="number" id="adn-a" placeholder="Ví dụ: 600">
-                </div>
-                <button class="btn btn-primary btn-full" onclick="calculateADN()"><i class="fa-solid fa-gears"></i> Tính Toán Ngay</button>
-                
-                <div id="adn-result" class="result-box hidden">
-                    <h4>Kết quả tính toán:</h4>
-                    <p>Tổng số Nu ($N$): <span id="res-n" class="highlight-val">0</span> Nu</p>
-                    <p>Số Nu loại G = X: <span id="res-gx" class="highlight-val">0</span> Nu</p>
-                    <p>Số liên kết Hydro ($H$): <span id="res-h" class="highlight-val">0</span> liên kết</p>
-                    <p>Khối lượng ADN ($M$): <span id="res-m" class="highlight-val">0</span> ĐvC</p>
-                </div>
-            </div>
-
-            <!-- Tool 2: Hardy Weinberg Calculator -->
-            <div class="tool-card">
-                <h3><i class="fa-solid fa-chart-pie"></i> Máy Tính Hardy - Weinberg</h3>
-                <div class="input-group">
-                    <label for="hw-aa">Số cá thể kiểu gene $AA$:</label>
-                    <input type="number" id="hw-aa" placeholder="Ví dụ: 360">
-                </div>
-                <div class="input-group">
-                    <label for="hw-Aa">Số cá thể kiểu gene $Aa$:</label>
-                    <input type="number" id="hw-Aa" placeholder="Ví dụ: 480">
-                </div>
-                <div class="input-group">
-                    <label for="hw-aa2">Số cá thể kiểu gene $aa$:</label>
-                    <input type="number" id="hw-aa2" placeholder="Ví dụ: 160">
-                </div>
-                <button class="btn btn-primary btn-full" onclick="calculateHW()"><i class="fa-solid fa-calculator"></i> Phân Tích Quần Thể</button>
-
-                <div id="hw-result" class="result-box hidden">
-                    <h4>Tần số Allele & Cân bằng:</h4>
-                    <p>Tần số Allele $A$ ($p$): <span id="res-p" class="highlight-val">0</span></p>
-                    <p>Tần số Allele $a$ ($q$): <span id="res-q" class="highlight-val">0</span></p>
-                    <p>Trạng thái: <span id="res-status" class="highlight-val">...</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quiz Practice Hub -->
+    <!-- Interactive Practice System -->
     <section id="practice" class="practice-section container">
         <div class="section-title">
-            <h2><i class="fa-solid fa-graduation-cap text-green"></i> Luyện Tập Trắc Nghiệm Tương Tác</h2>
-            <p>Kiểm tra kiến thức di truyền học của bạn với bộ câu hỏi chọn lọc.</p>
+            <h2><i class="fa-solid fa-graduation-cap"></i> Hệ Thống Bài Tập Luyện Tập Tương Tác</h2>
+            <p>Thử sức với các câu hỏi trắc nghiệm kiểm tra kiến thức di truyền học có đáp án chi tiết.</p>
         </div>
 
         <div class="quiz-container">
-            <!-- Quiz Item 1 -->
             <div class="quiz-card">
                 <div class="quiz-header">
                     <span class="q-number">Câu 1</span>
@@ -468,59 +324,8 @@
                 </div>
                 <button class="btn btn-check" onclick="checkQuiz('q1', 'q1-correct', 'q1-explain')">Kiểm tra đáp án</button>
                 <div id="q1-explain" class="explanation-box hidden">
-                    <strong><i class="fa-solid fa-circle-info"></i> Giải chi tiết:</strong> Theo nguyên tắc bổ sung trong phiên mã: A gốc $\rightarrow$ U mARN, T gốc $\rightarrow$ A mARN, G gốc $\rightarrow$ X mARN, X gốc $\rightarrow$ G mARN và mARN có chiều ngược lại với mạch khuôn (5' $\rightarrow$ 3'). Đáp án B đúng.
+                    <strong><i class="fa-solid fa-circle-info"></i> Giải chi tiết:</strong> Theo nguyên tắc bổ sung trong phiên mã: A gốc liên kết U mARN, T gốc liên kết A mARN, G gốc liên kết X mARN, X gốc liên kết G mARN và chiều mARN ngược chiều mạch khuôn (5' $\rightarrow$ 3'). Đáp án đúng là B.
                 </div>
-            </div>
-
-            <!-- Quiz Item 2 -->
-            <div class="quiz-card" style="margin-top: 24px;">
-                <div class="quiz-header">
-                    <span class="q-number">Câu 2</span>
-                    <p class="q-text">Ở phép lai $AaBb \times AaBb$, tỉ lệ cá thể mang kiểu hình trội về cả 2 tính trạng (A-B-) ở đời F1 là bao nhiêu (biết trội hoàn toàn)?</p>
-                </div>
-                <div class="quiz-options">
-                    <label class="option-item">
-                        <input type="radio" name="q2" value="A">
-                        <span>A. 1/16</span>
-                    </label>
-                    <label class="option-item">
-                        <input type="radio" name="q2" value="B">
-                        <span>B. 3/16</span>
-                    </label>
-                    <label class="option-item">
-                        <input type="radio" name="q2" value="C" id="q2-correct">
-                        <span>C. 9/16</span>
-                    </label>
-                </div>
-                <button class="btn btn-check" onclick="checkQuiz('q2', 'q2-correct', 'q2-explain')">Kiểm tra đáp án</button>
-                <div id="q2-explain" class="explanation-box hidden">
-                    <strong><i class="fa-solid fa-circle-info"></i> Giải chi tiết:</strong> Tỉ lệ $A- = 3/4$, tỉ lệ $B- = 3/4$. Tích tỉ lệ $A-B- = (3/4) \times (3/4) = 9/16$. Đáp án C đúng.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Glossary Section -->
-    <section id="glossary" class="glossary-section container">
-        <div class="section-title">
-            <h2><i class="fa-solid fa-spell-check text-purple"></i> Từ Điển Thuật Ngữ Di Truyền</h2>
-        </div>
-        <div class="glossary-grid">
-            <div class="gloss-card">
-                <h4>Allele (A-len)</h4>
-                <p>Các trạng thái biểu hiện khác nhau của cùng một gene quy định một tính trạng.</p>
-            </div>
-            <div class="gloss-card">
-                <h4>Codon (Bộ ba mã hóa)</h4>
-                <p>Cụm 3 nucleotide liên tiếp trên mARN quy định một amino acid hoặc tín hiệu kết thúc.</p>
-            </div>
-            <div class="gloss-card">
-                <h4>Plasmid</h4>
-                <p>Phân tử ADN vòng nhỏ nằm trong tế bào chất của vi khuẩn, được dùng làm thể truyền gene.</p>
-            </div>
-            <div class="gloss-card">
-                <h4>Genome (Hệ gene)</h4>
-                <p>Toàn bộ lượng thông tin di truyền chứa trong bộ NST của một cơ thể sinh vật.</p>
             </div>
         </div>
     </section>
@@ -533,82 +338,23 @@
                     <i class="fa-solid fa-dna glow-icon"></i>
                     <span>Genetics<span class="highlight">Hub</span></span>
                 </a>
-                <p>Nền tảng tri thức di truyền học trực quan, hiện đại, tối ưu hóa cho học tập & nghiên cứu.</p>
+                <p>Nền tảng học tập & tra cứu tri thức Sinh học Di truyền hiện đại, trực quan và miễn phí.</p>
             </div>
             <div class="footer-links">
-                <h4>Danh mục</h4>
+                <h4>Chức năng</h4>
                 <ul>
-                    <li><a href="#wiki">Thư viện Wiki</a></li>
-                    <li><a href="#tools">Máy tính ADN</a></li>
-                    <li><a href="#practice">Trắc nghiệm</a></li>
-                    <li><a href="#glossary">Từ điển thuật ngữ</a></li>
+                    <li><a href="#wiki">Lý thuyết Wiki</a></li>
+                    <li><a href="#practice">Luyện trắc nghiệm</a></li>
+                    <li><a href="#tools">Công cụ tính toán</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Genetics Learning Hub Pro. Phát triển bởi Đặng Thanh Tùng.</p>
+            <p>&copy; 2026 Genetics Learning Hub. Phát triển bởi Đặng Thanh Tùng.</p>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
     <script>
-        // ADN Calculator Logic
-        function calculateADN() {
-            const L = parseFloat(document.getElementById('adn-length').value);
-            const A = parseFloat(document.getElementById('adn-a').value);
-            const resBox = document.getElementById('adn-result');
-
-            if (!L || L <= 0 || !A || A < 0) {
-                alert('Vui lòng nhập chiều dài L và số Nu loại A hợp lệ!');
-                return;
-            }
-
-            const N = (L / 3.4) * 2;
-            const G = (N / 2) - A;
-
-            if (G < 0) {
-                alert('Số Nu loại A vượt quá tổng số Nu của gen!');
-                return;
-            }
-
-            const H = 2 * A + 3 * G;
-            const M = N * 300;
-
-            document.getElementById('res-n').innerText = Math.round(N).toLocaleString();
-            document.getElementById('res-gx').innerText = Math.round(G).toLocaleString();
-            document.getElementById('res-h').innerText = Math.round(H).toLocaleString();
-            document.getElementById('res-m').innerText = Math.round(M).toLocaleString();
-
-            resBox.classList.remove('hidden');
-        }
-
-        // Hardy Weinberg Calculator Logic
-        function calculateHW() {
-            const AA = parseFloat(document.getElementById('hw-aa').value) || 0;
-            const Aa = parseFloat(document.getElementById('hw-Aa').value) || 0;
-            const aa = parseFloat(document.getElementById('hw-aa2').value) || 0;
-            const resBox = document.getElementById('hw-result');
-
-            const total = AA + Aa + aa;
-            if (total <= 0) {
-                alert('Vui lòng nhập số lượng cá thể!');
-                return;
-            }
-
-            const p = (AA + Aa / 2) / total;
-            const q = 1 - p;
-
-            document.getElementById('res-p').innerText = p.toFixed(4);
-            document.getElementById('res-q').innerText = q.toFixed(4);
-
-            const expectedAA = Math.pow(p, 2) * total;
-            const isBalanced = Math.abs(AA - expectedAA) < 2;
-            document.getElementById('res-status').innerText = isBalanced ? 'Cân bằng di truyền' : 'Chưa cân bằng';
-
-            resBox.classList.remove('hidden');
-        }
-
-        // Quiz Checker Logic
         function checkQuiz(qName, correctId, explainId) {
             const selected = document.querySelector(`input[name="${qName}"]:checked`);
             const explainBox = document.getElementById(explainId);
@@ -622,21 +368,6 @@
             } else {
                 explainBox.style.borderLeft = "4px solid var(--accent-red)";
             }
-        }
-
-        // Real-time Content Filter / Search
-        function filterContent() {
-            const query = document.getElementById('globalSearch').value.toLowerCase();
-            const articles = document.querySelectorAll('.searchable');
-
-            articles.forEach(article => {
-                const text = article.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = query === '' ? 'block' : 'none';
-                }
-            });
         }
     </script>
 </body>
