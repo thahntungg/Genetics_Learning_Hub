@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genetics Learning Hub - Trung Tâm Học Tập Di Truyền Học Tương Tác</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white custom-scrollbar">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                        <i class="fa-solid font-bold fa-dna text-2xl animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight gradient-text">GENETICS</span>
+                        <span class="text-xs block font-semibold text-emerald-400 tracking-wider uppercase">Learning Hub</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-emerald-400 bg-slate-800/80 border border-emerald-500/30">
+                        <i class="fa-solid fa-house mr-2"></i>Trang Chủ
+                    </button>
+                    <button onclick="navigateTo('theory')" id="nav-theory" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
+                        <i class="fa-solid fa-book-open mr-2"></i>Lý Thuyết Wiki
+                    </button>
+                    <button onclick="navigateTo('lab')" id="nav-lab" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
+                        <i class="fa-solid fa-flask-vial mr-2"></i>Phòng Thí Nghiệm
+                    </button>
+                    <button onclick="navigateTo('quiz')" id="nav-quiz" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i>Kiểm Tra / Quiz
+                    </button>
+                    <button onclick="navigateTo('references')" id="nav-references" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
+                        <i class="fa-solid fa-bookmark mr-2"></i>Tài Liệu
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900/95 px-4 pt-3 pb-6 space-y-2">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-emerald-400 bg-slate-800 flex items-center">
+                <i class="fa-solid fa-house w-6"></i>Trang Chủ
+            </button>
+            <button onclick="navigateTo('theory'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center">
+                <i class="fa-solid fa-book-open w-6"></i>Lý Thuyết Wiki
+            </button>
+            <button onclick="navigateTo('lab'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center">
+                <i class="fa-solid fa-flask-vial w-6"></i>Phòng Thí Nghiệm Tương Tác
+            </button>
+            <button onclick="navigateTo('quiz'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center">
+                <i class="fa-solid fa-graduation-cap w-6"></i>Ngân Hàng Quiz & Đáp Án
+            </button>
+            <button onclick="navigateTo('references'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center">
+                <i class="fa-solid fa-bookmark w-6"></i>Tài Liệu Tham Khảo
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-container" class="flex-grow">
+
+        <!-- SECTION 1: HOME & HERO -->
+        <section id="section-home" class="page-section space-y-16 py-8">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-sky-500/10 rounded-3xl blur-3xl -z-10"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-left">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Nền Tảng Đào Tạo Sinh Học Hiện Đại</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Khám Phá Mật Mã <br>
+                            <span class="gradient-text">Di Truyền & Sự Sống</span>
+                        </h1>
+                        <p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
+                            Chào mừng bạn đến với <strong>Genetics Learning Hub</strong> – Không gian tương tác học tập Di truyền học toàn diện từ quy luật Mendel kinh điển, cơ chế trung tâm DNA-RNA-Protein đến kỹ thuật chỉnh sửa gen đột phá CRISPR-Cas9.
+                        </p>
+
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <button onclick="navigateTo('theory')" class="px-7 py-3.5 rounded-xl gradient-bg text-white font-bold text-base shadow-lg shadow-emerald-500/25 hover:opacity-95 transition-all flex items-center">
+                                <i class="fa-solid fa-atom mr-2"></i> Bắt Đầu Học Lý Thuyết
+                            </button>
+                            <button onclick="navigateTo('lab')" class="px-7 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-base transition-all flex items-center">
+                                <i class="fa-solid fa-microscope mr-2 text-emerald-400"></i> Vào Lab Thực Hành
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+                            <div>
+                                <span class="block text-2xl font-bold text-emerald-400">5+</span>
+                                <span class="text-xs text-slate-400">Chủ đề chi tiết</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold text-teal-400">3</span>
+                                <span class="text-xs text-slate-400">Công cụ Lab tương tác</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold text-sky-400">100%</span>
+                                <span class="text-xs text-slate-400">Miễn phí & Trực quan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative">
+                        <div class="glass-card rounded-2xl p-4 overflow-hidden border border-emerald-500/30 relative">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="DNA Double Helix" class="w-full h-80 object-cover rounded-xl opacity-90 shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/10">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-dna text-3xl text-emerald-400"></i>
+                                    <div>
+                                        <h4 class="font-bold text-white text-sm">Chuỗi Xoắn Kép DNA</h4>
+                                        <p class="text-xs text-slate-300">Khám phá 3.2 tỷ cặp bazo nitơ trong bộ gen người</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Modules -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-extrabold text-white">Chương Trình Học Cốt Lõi</h2>
+                    <p class="text-slate-400 mt-2">Hệ thống hóa kiến thức Di truyền học từ nền tảng đến hiện đại</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl font-bold mb-4">01</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Quy Luật Mendel</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Phân tích thí nghiệm lai đậu Hà Lan của Gregor Mendel, Quy luật Phân ly và Phân ly độc lập.</p>
+                        </div>
+                        <button onclick="openTheoryTopic('mendel')" class="text-emerald-400 font-semibold text-sm hover:text-emerald-300 inline-flex items-center">
+                            Đọc bài viết Wiki <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl font-bold mb-4">02</div>
+                            <h3 class="text-xl font-bold text-white mb-2">DNA, RNA & Protein</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Tìm hiểu Thuyết Trung tâm: Tái bản DNA, Phiên mã tạo mRNA và Dịch mã tổng hợp Protein.</p>
+                        </div>
+                        <button onclick="openTheoryTopic('dna')" class="text-teal-400 font-semibold text-sm hover:text-teal-300 inline-flex items-center">
+                            Đọc bài viết Wiki <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl font-bold mb-4">03</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Đột Biến Gen & NST</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Phân loại các dạng đột biến điểm và đột biến cấu trúc, số lượng nhiễm sắc thể.</p>
+                        </div>
+                        <button onclick="openTheoryTopic('mutation')" class="text-sky-400 font-semibold text-sm hover:text-sky-300 inline-flex items-center">
+                            Đọc bài viết Wiki <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl font-bold mb-4">04</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Di Truyền Quần Thể</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Cấu trúc gen quần thể ngẫu phối và Định luật cân bằng Hardy-Weinberg (p² + 2pq + q² = 1).</p>
+                        </div>
+                        <button onclick="openTheoryTopic('population')" class="text-amber-400 font-semibold text-sm hover:text-amber-300 inline-flex items-center">
+                            Đọc bài viết Wiki <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl font-bold mb-4">05</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Công Nghệ Gen & CRISPR</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Kỹ thuật ADN tái tổ hợp, PCR, giải trình tự gen và kéo sinh học CRISPR-Cas9.</p>
+                        </div>
+                        <button onclick="openTheoryTopic('crispr')" class="text-purple-400 font-semibold text-sm hover:text-purple-300 inline-flex items-center">
+                            Đọc bài viết Wiki <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-2 border-emerald-500/40 bg-emerald-950/20">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-slate-950 text-xl font-bold mb-4 shadow-lg shadow-emerald-500/40">
+                                <i class="fa-solid fa-vial"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Thực Hành Interactive</h3>
+                            <p class="text-sm text-emerald-200/80 leading-relaxed mb-4">Tự tay chạy mô phỏng dịch mã ADN, giải khung Punnett và tính tần số allele.</p>
+                        </div>
+                        <button onclick="navigateTo('lab')" class="px-4 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-extrabold text-sm hover:bg-emerald-400 transition-all text-center">
+                            Truy Cập Lab Ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: WIKI THEORY -->
+        <section id="section-theory" class="page-section hidden py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Sidebar Selector -->
+                    <div class="lg:w-1/4 space-y-2">
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-3">Danh Mục Bài Học Wiki</h3>
+                        
+                        <button onclick="switchTheoryTab('mendel')" id="tab-btn-mendel" class="theory-tab-btn w-full text-left p-3.5 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all bg-emerald-600 text-white shadow-md">
+                            <i class="fa-solid fa-seedling w-5 text-center"></i><span>1. Quy luật Mendel</span>
+                        </button>
+                        <button onclick="switchTheoryTab('dna')" id="tab-btn-dna" class="theory-tab-btn w-full text-left p-3.5 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 hover:bg-slate-800">
+                            <i class="fa-solid fa-dna w-5 text-center"></i><span>2. Cấu trúc DNA & Dịch mã</span>
+                        </button>
+                        <button onclick="switchTheoryTab('mutation')" id="tab-btn-mutation" class="theory-tab-btn w-full text-left p-3.5 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 hover:bg-slate-800">
+                            <i class="fa-solid fa-triangle-exclamation w-5 text-center"></i><span>3. Đột biến Gen & NST</span>
+                        </button>
+                        <button onclick="switchTheoryTab('population')" id="tab-btn-population" class="theory-tab-btn w-full text-left p-3.5 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 hover:bg-slate-800">
+                            <i class="fa-solid fa-users-rays w-5 text-center"></i><span>4. Di truyền Quần thể</span>
+                        </button>
+                        <button onclick="switchTheoryTab('crispr')" id="tab-btn-crispr" class="theory-tab-btn w-full text-left p-3.5 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 hover:bg-slate-800">
+                            <i class="fa-solid fa-scissors w-5 text-center"></i><span>5. Công nghệ Gen & CRISPR</span>
+                        </button>
+                    </div>
+
+                    <!-- Theory Main Content -->
+                    <div class="lg:w-3/4">
+                        <!-- Topic 1: Mendel -->
+                        <div id="theory-content-mendel" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                                <div>
+                                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Di Truyền Cổ Điển</span>
+                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Các Quy Luật Di Truyền Của Mendel</h2>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Wiki Verified</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-4">
+                                <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=800&q=80" alt="Mendel Peas" class="w-full h-56 object-cover rounded-xl shadow-lg border border-slate-700">
+                                <div class="space-y-3">
+                                    <h4 class="font-bold text-emerald-400 text-lg">Gregor Johann Mendel (1822–1884)</h4>
+                                    <p class="text-sm text-slate-300 leading-relaxed">Mendel được coi là <strong>Cha đẻ của Di truyền học</strong> nhờ các thí nghiệm lai thành công trên cây Đậu Hà Lan (Pisum sativum).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Topic 2: DNA -->
+                        <div id="theory-content-dna" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                                <div>
+                                    <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Sinh Học Phân Tử</span>
+                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Cấu Trúc DNA, Phiên Mã & Dịch Mã</h2>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-300 border border-teal-500/30">Wiki Verified</span>
+                            </div>
+                            <p class="text-sm text-slate-300">Nội dung chi tiết về cơ chế Trung tâm: DNA ➔ RNA ➔ Protein ➔ Tính trạng.</p>
+                        </div>
+
+                        <!-- Topic 3: Mutation -->
+                        <div id="theory-content-mutation" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Đột Biến Gen & Nhiễm Sắc Thể</h2>
+                            <p class="text-sm text-slate-300">Khái niệm và phân loại đột biến gen (thay thế, thêm, mất nu) và đột biến cấu trúc, số lượng NST.</p>
+                        </div>
+
+                        <!-- Topic 4: Population -->
+                        <div id="theory-content-population" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Di Truyền Học Quần Thể</h2>
+                            <p class="text-sm text-slate-300">Định luật cân bằng Hardy-Weinberg trong quần thể ngẫu phối: p² + 2pq + q² = 1.</p>
+                        </div>
+
+                        <!-- Topic 5: CRISPR -->
+                        <div id="theory-content-crispr" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Công Nghệ Gen & CRISPR-Cas9</h2>
+                            <p class="text-sm text-slate-300">Ứng dụng kéo sinh học CRISPR-Cas9 trong công nghệ chỉnh sửa gen chính xác cao.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LAB -->
+        <section id="section-lab" class="page-section hidden py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Phòng Thí Nghiệm Ảo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Interactive Genetics Lab</h2>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="inline-flex p-1.5 rounded-2xl glass-panel border border-slate-800">
+                        <button onclick="switchLabTool('punnett')" id="lab-tab-punnett" class="lab-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-emerald-600 text-white shadow-md">
+                            <i class="fa-solid fa-table-cells mr-2"></i>Khung Punnett
+                        </button>
+                        <button onclick="switchLabTool('central-dogma')" id="lab-tab-central-dogma" class="lab-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 hover:text-white transition-all">
+                            <i class="fa-solid fa-code mr-2"></i>Mô Phỏng Dịch Mã
+                        </button>
+                        <button onclick="switchLabTool('hardy')" id="lab-tab-hardy" class="lab-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 hover:text-white transition-all">
+                            <i class="fa-solid fa-calculator mr-2"></i>Hardy-Weinberg
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TOOL 1: PUNNETT -->
+                <div id="lab-tool-punnett" class="lab-tool-content space-y-6">
+                    <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-emerald-500/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">Công Cụ Giải Khung Punnett</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-400 uppercase mb-2">Bố (P1)</label>
+                                <select id="punnett-p1" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white font-mono">
+                                    <option value="Aa">Aa</option>
+                                    <option value="AA">AA</option>
+                                    <option value="aa">aa</option>
+                                    <option value="AaBb" selected>AaBb</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-emerald-400 uppercase mb-2">Mẹ (P2)</label>
+                                <select id="punnett-p2" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white font-mono">
+                                    <option value="Aa">Aa</option>
+                                    <option value="AA">AA</option>
+                                    <option value="aa">aa</option>
+                                    <option value="AaBb" selected>AaBb</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="calculatePunnett()" class="w-full py-3.5 rounded-xl gradient-bg text-white font-bold text-base shadow-lg">Lập Khung Punnett</button>
+                            </div>
+                        </div>
+
+                        <div id="punnett-grid-container" class="overflow-x-auto"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
+                                <h5 class="text-sm font-bold text-emerald-400 mb-2">Tỉ Lệ Kiểu Gen</h5>
+                                <div id="genotype-ratios" class="font-mono text-sm space-y-1"></div>
+                            </div>
+                            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
+                                <h5 class="text-sm font-bold text-teal-400 mb-2">Tỉ Lệ Kiểu Hình</h5>
+                                <div id="phenotype-ratios" class="font-mono text-sm space-y-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: CENTRAL DOGMA -->
+                <div id="lab-tool-central-dogma" class="lab-tool-content space-y-6 hidden">
+                    <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-teal-500/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">Mô Phỏng Phiên Mã & Dịch Mã</h3>
+                        <div class="flex gap-3 mb-4">
+                            <input id="dna-input" type="text" value="TAC GGC TTA CTT ACT" class="flex-grow bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white font-mono uppercase text-lg">
+                            <button onclick="runCentralDogmaSim()" class="px-6 py-3 rounded-xl bg-teal-600 text-white font-bold">Chạy Dịch Mã</button>
+                        </div>
+                        <div class="space-y-4 bg-slate-950 p-6 rounded-2xl border border-slate-800 font-mono">
+                            <div>DNA: <span id="visual-dna" class="text-emerald-400"></span></div>
+                            <div>mRNA: <span id="visual-mrna" class="text-teal-300"></span></div>
+                            <div>Protein: <div id="visual-protein" class="flex flex-wrap gap-2 mt-2"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: HARDY-WEINBERG -->
+                <div id="lab-tool-hardy" class="lab-tool-content space-y-6 hidden">
+                    <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-amber-500/20">
+                        <h3 class="text-2xl font-bold text-white mb-4">Máy Tính Hardy-Weinberg</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs text-slate-300 mb-2">Tần số allele p (A):</label>
+                                <input id="hw-p-input" type="number" step="0.01" min="0" max="1" value="0.6" oninput="calculateHardyFromP()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white font-mono">
+                            </div>
+                        </div>
+                        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                            <div><span class="text-xs text-slate-400 block">p (A)</span><span id="hw-res-p" class="text-xl font-bold text-emerald-400">0.60</span></div>
+                            <div><span class="text-xs text-slate-400 block">q (a)</span><span id="hw-res-q" class="text-xl font-bold text-teal-400">0.40</span></div>
+                            <div><span class="text-xs text-slate-400 block">AA (p²)</span><span id="hw-res-p2" class="text-xl font-bold text-sky-400">36%</span></div>
+                            <div><span class="text-xs text-slate-400 block">Aa (2pq)</span><span id="hw-res-2pq" class="text-xl font-bold text-amber-400">48%</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: QUIZ -->
+        <section id="section-quiz" class="page-section hidden py-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-white">Trắc Nghiệm Di Truyền</h2>
+                </div>
+                <div id="quiz-card" class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 id="quiz-question-text" class="text-xl font-bold text-white"></h3>
+                    <div id="quiz-options-container" class="space-y-3"></div>
+                    <div id="quiz-explanation-box" class="hidden p-4 rounded-xl bg-slate-900 border border-emerald-500/30 text-sm text-slate-300">
+                        <p id="quiz-explanation-text"></p>
+                    </div>
+                    <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-6 py-3 rounded-xl gradient-bg text-white font-bold text-sm">Câu Tiếp Theo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: REFERENCES -->
+        <section id="section-references" class="page-section hidden py-8">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+                <h2 class="text-3xl font-extrabold text-white">Tài Liệu Tham Khảo Wiki</h2>
+                <p class="text-slate-400">Các cơ sở dữ liệu sinh học hàng đầu: Wikipedia, NCBI, Nature Genetics.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800/80 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-400">
+            <p>© 2026 Genetics Learning Hub. Tác giả: <strong>Thanh Tùng</strong>.</p>
+        </div>
+    </footer>
+
+    <!-- App Logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>

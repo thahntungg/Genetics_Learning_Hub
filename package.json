@@ -1,0 +1,15 @@
+{
+  "name": "genetics-learning-hub",
+  "version": "1.0.0",
+  "description": "Trung Tâm Học Tập Di Truyền Học Tương Tác",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["genetics", "biology", "crispr", "dna", "punnett"],
+  "author": "Thanh Tung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

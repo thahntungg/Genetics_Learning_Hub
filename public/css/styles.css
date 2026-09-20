@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+.glass-panel {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.15);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #34d399 0%, #14b8a6 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0284c7 100%);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #059669;
+    border-radius: 9999px;
+}
+
+.dna-node {
+    animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.6; filter: drop-shadow(0 0 4px rgba(16,185,129,0.3)); }
+    100% { opacity: 1; filter: drop-shadow(0 0 12px rgba(16,185,129,0.8)); }
+}
