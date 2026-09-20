@@ -133,7 +133,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Module Cards (Enhanced) -->
+                    <!-- Module Cards -->
                     <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('mendel'), 100)">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl font-bold mb-4 group-hover:bg-emerald-500/20 transition-colors">01</div>
@@ -234,7 +234,8 @@
                                 </span>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                                <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=800&q=80" alt="Mendel Peas" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700">
+                                <!-- Đã sửa ảnh thí nghiệm quy luật Mendel -->
+                                <img src="watermarked_img_10515150029207394318.png" alt="Mendel Peas Genetics" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700">
                                 <div class="space-y-4">
                                     <h4 class="font-bold text-emerald-400 text-xl border-l-4 border-emerald-500 pl-3">Gregor Johann Mendel (1822–1884)</h4>
                                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
@@ -269,7 +270,8 @@
                                         <strong>Nguyên tắc bổ sung:</strong> Adenine (A) liên kết với Thymine (T) bằng 2 liên kết hidro. Guanine (G) liên kết với Cytosine (C) bằng 3 liên kết hidro.
                                     </p>
                                 </div>
-                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80" alt="DNA Structure" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700 order-1 md:order-2">
+                                <!-- Đã sửa ảnh sơ đồ DNA Phiên mã & Dịch mã -->
+                                <img src="watermarked_img_4395598140730368563.png" alt="DNA Transcription and Translation" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700 order-1 md:order-2">
                             </div>
                         </div>
 
@@ -404,7 +406,6 @@
                         </div>
 
                         <div id="punnett-grid-container" class="overflow-x-auto pb-4 custom-scrollbar">
-                            <!-- Khung Punnett Sẽ Render Ở Đây (via JS) -->
                             <div class="w-full h-32 border-2 border-dashed border-slate-700 rounded-xl flex items-center justify-center text-slate-500 text-sm">
                                 Bấm "Lập Khung Lai" để hiển thị kết quả
                             </div>
@@ -423,7 +424,6 @@
                     </div>
                 </div>
 
-                <!-- TOOL 2 & 3 giữ logic tương tự, nâng cấp CSS form giống TOOL 1 -->
                 <!-- Central Dogma -->
                 <div id="lab-tool-central-dogma" class="lab-tool-content space-y-6 hidden">
                     <div class="glass-panel rounded-2xl p-5 sm:p-8 border border-teal-500/20 shadow-2xl">
@@ -558,7 +558,6 @@
         </div>
     </footer>
 
-    <!-- Giả lập Logic cho việc xem trước nếu app.js chưa kịp load -->
     <script>
         function navigateTo(sectionId) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
