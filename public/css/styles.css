@@ -4,56 +4,105 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #0f172a;
     color: #f8fafc;
+    overflow-x: hidden;
 }
 
+/* Glassmorphism tinh chỉnh mượt hơn */
 .glass-panel {
     background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .glass-card {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.2);
+    background: rgba(30, 41, 59, 0.8);
 }
 
 .gradient-text {
     background: linear-gradient(135deg, #34d399 0%, #14b8a6 50%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
 }
 
 .gradient-bg {
     background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0284c7 100%);
+    background-size: 200% auto;
+    transition: 0.5s;
 }
 
+.gradient-bg:hover {
+    background-position: right center;
+}
+
+/* Tối ưu thanh cuộn cho mọi thiết bị */
 .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #059669;
+    background: rgba(52, 211, 153, 0.5);
     border-radius: 9999px;
+    transition: background 0.3s;
 }
 
-.dna-node {
-    animation: pulse-glow 3s infinite alternate;
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.8);
 }
 
+/* --- ANIMATIONS (Chuyển cảnh mượt mà) --- */
 @keyframes pulse-glow {
-    0% { opacity: 0.6; filter: drop-shadow(0 0 4px rgba(16,185,129,0.3)); }
-    100% { opacity: 1; filter: drop-shadow(0 0 12px rgba(16,185,129,0.8)); }
+    0% { opacity: 0.6; filter: drop-shadow(0 0 4px rgba(16,185,129,0.3)); transform: scale(1); }
+    100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(16,185,129,0.8)); transform: scale(1.05); }
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Áp dụng animation cho các section khi xuất hiện */
+.page-section:not(.hidden) {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.theory-content:not(.hidden) {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.lab-tool-content:not(.hidden) {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Tinh chỉnh Mobile Menu */
+#mobile-menu {
+    animation: fadeIn 0.3s ease-in-out;
 }
