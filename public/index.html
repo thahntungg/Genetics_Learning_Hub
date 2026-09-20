@@ -105,9 +105,10 @@
                         </div>
                     </div>
 
+                    <!-- Sử dụng anh6.png cho phần Hero của Trang Chủ -->
                     <div class="lg:col-span-5 relative hidden sm:block">
                         <div class="glass-card rounded-2xl p-3 overflow-hidden border border-emerald-500/30 relative group">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="DNA Double Helix" class="w-full h-72 lg:h-96 object-cover rounded-xl opacity-90 group-hover:scale-105 transition-transform duration-700">
+                            <img src="anh6.png" alt="Chuỗi Xoắn Kép DNA" class="w-full h-72 lg:h-96 object-cover rounded-xl opacity-90 group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
                             <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/10 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                                 <div class="flex items-center space-x-4">
@@ -116,7 +117,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-white text-base">Chuỗi Xoắn Kép DNA</h4>
-                                        <p class="text-xs text-slate-300 mt-1">Khám phá 3.2 tỷ cặp bazo nitơ trong bộ gen người</p>
+                                        <p class="text-xs text-slate-300 mt-1">Cấu trúc không gian không đổi theo mô hình Watson - Crick</p>
                                     </div>
                                 </div>
                             </div>
@@ -277,22 +278,56 @@
                             </div>
                         </div>
 
-                        <!-- Topic 2: DNA -->
+                        <!-- Topic 2: DNA (NÂNG CẤP CHI TIẾT BỔ SUNG CẤU TRÚC XOẮN KÉP VÀ ANH6.PNG) -->
                         <div id="theory-content-dna" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
                             <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
                                 <div>
                                     <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Sinh Học Phân Tử</span>
                                     <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Cấu Trúc DNA, Phiên Mã & Cơ Chế Dịch Mã</h2>
                                 </div>
+                                <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center">
+                                    <i class="fa-solid fa-dna mr-1.5"></i> Cấu Trúc Phân Tử
+                                </span>
                             </div>
 
                             <div class="space-y-6 my-6">
+                                <!-- Khối mô tả Cấu trúc Chuỗi Xoắn Kép DNA với ảnh minh họa anh6.png -->
+                                <div class="bg-slate-800/40 p-5 rounded-2xl border border-teal-500/30 space-y-4">
+                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">1. Cấu Trúc Không Gian Chuỗi Xoắn Kép DNA</h4>
+                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
+                                        Năm 1953, James Watson và Francis Crick đã công bố mô hình cấu trúc không gian của phân tử DNA (A-DNA/B-DNA): DNA là một chuỗi xoắn kép gồm 2 chuỗi polynucleotide song song và ngược chiều nhau (3' - 5' và 5' - 3').
+                                    </p>
+                                    
+                                    <div class="w-full bg-slate-950/60 p-3 rounded-2xl border border-slate-700/80 my-4">
+                                        <img src="anh6.png" alt="Cấu trúc Chuỗi Xoắn Kép DNA chi tiết" class="w-full h-auto object-contain rounded-xl shadow-lg">
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300">
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
+                                            <h6 class="font-bold text-teal-300 text-sm"><i class="fa-solid fa-ruler-combined mr-2"></i>Thông Số Động Học Phân Tử</h6>
+                                            <ul class="space-y-1 list-disc list-inside marker:text-teal-400">
+                                                <li>Đường kính vòng xoắn không đổi: <strong>2 nm (20 Å)</strong>.</li>
+                                                <li>Mỗi chu kỳ xoắn dài <strong>3.4 nm (34 Å)</strong> gồm 10 cặp nucleotide.</li>
+                                                <li>Khoảng cách giữa 2 cặp nucleotide kế tiếp: <strong>0.34 nm (3.4 Å)</strong>.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-2">
+                                            <h6 class="font-bold text-teal-300 text-sm"><i class="fa-solid fa-link mr-2"></i>Liên Kết Bổ Sung & Khung Đường - Photphat</h6>
+                                            <ul class="space-y-1 list-disc list-inside marker:text-teal-400">
+                                                <li><strong>A</strong> liên kết với <strong>T</strong> bằng 2 liên kết hydro.</li>
+                                                <li><strong>G</strong> liên kết với <strong>C</strong> bằng 3 liên kết hydro.</li>
+                                                <li>Khung xương polymer được nối cố định bởi liên kết phosphodiester bền vững giữa đường Deoxyribose và gốc Phosphate.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="w-full bg-slate-950/60 p-3 rounded-2xl border border-slate-700/80">
                                     <img src="anh2.png" alt="Sơ đồ chi tiết quá trình Phiên mã và Dịch mã sinh học" class="w-full h-auto object-contain rounded-xl shadow-lg">
                                 </div>
 
                                 <div class="space-y-5">
-                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">Thuyết Trung Tâm (Central Dogma) & Cơ Chế Tổng Hợp Protein</h4>
+                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">2. Thuyết Trung Tâm (Central Dogma) & Cơ Chế Tổng Hợp Protein</h4>
                                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
                                         Luồng thông tin di truyền từ nhân tế bào ra biểu hiện thành tính trạng tuân theo cơ chế: <strong>DNA → Phiên mã (Transcription) → mRNA → Dịch mã (Translation) → Chuỗi Polypeptide (Protein)</strong>.
                                     </p>
@@ -300,7 +335,7 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                                         <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
                                             <h5 class="text-teal-400 font-bold text-base flex items-center">
-                                                <i class="fa-solid fa-microscope mr-2"></i> 1. Phiên Mã (Transcription)
+                                                <i class="fa-solid fa-microscope mr-2"></i> Phiên Mã (Transcription)
                                             </h5>
                                             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
                                                 Diễn ra bên trong <strong>Nhân tế bào (Nucleus)</strong>:
@@ -314,7 +349,7 @@
 
                                         <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
                                             <h5 class="text-teal-400 font-bold text-base flex items-center">
-                                                <i class="fa-solid fa-dna mr-2"></i> 2. Dịch Mã (Translation)
+                                                <i class="fa-solid fa-dna mr-2"></i> Dịch Mã (Translation)
                                             </h5>
                                             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
                                                 Diễn ra tại <strong>Tế bào chất (Cytoplasm)</strong> với sự tham gia của Ribosome:
