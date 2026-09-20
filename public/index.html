@@ -1,598 +1,643 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genetics Learning Hub - Trung Tâm Học Tập Di Truyền Học Tương Tác</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Genetics Learning Hub Pro - Bách Khoa Di Truyền Học 4.0</title>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FontAwesome 6 & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white custom-scrollbar bg-slate-900">
+<body>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer hover:scale-105 transition-transform duration-300" onclick="navigateTo('home')">
-                    <div class="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
-                        <i class="fa-solid font-bold fa-dna text-2xl animate-spin-slow"></i>
-                    </div>
-                    <div>
-                        <span class="text-xl sm:text-2xl font-extrabold tracking-tight gradient-text">GENETICS</span>
-                        <span class="text-[10px] sm:text-xs block font-semibold text-emerald-400 tracking-wider uppercase">Learning Hub</span>
-                    </div>
-                </div>
+    <!-- Sticky Glassmorphism Header -->
+    <header class="navbar" id="topNav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-dna glow-icon"></i>
+                <span>Genetics<span class="highlight">Hub</span> <span class="version-badge">PRO</span></span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                <a href="#wiki" class="nav-link"><i class="fa-solid fa-book-open"></i> Thư viện Wiki</a>
+                <a href="#tools" class="nav-link"><i class="fa-solid fa-calculator"></i> Công cụ tính</a>
+                <a href="#practice" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Luyện tập</a>
+                <a href="#glossary" class="nav-link"><i class="fa-solid fa-spell-check"></i> Tra từ điển</a>
+            </nav>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center space-x-2">
-                    <button onclick="navigateTo('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-emerald-400 bg-slate-800/80 border border-emerald-500/30 hover:shadow-emerald-500/20 hover:shadow-lg">
-                        <i class="fa-solid fa-house mr-2"></i>Trang Chủ
-                    </button>
-                    <button onclick="navigateTo('theory')" id="nav-theory" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
-                        <i class="fa-solid fa-book-open mr-2"></i>Lý Thuyết Wiki
-                    </button>
-                    <button onclick="navigateTo('lab')" id="nav-lab" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
-                        <i class="fa-solid fa-flask-vial mr-2"></i>Lab Thực Hành
-                    </button>
-                    <button onclick="navigateTo('quiz')" id="nav-quiz" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
-                        <i class="fa-solid fa-graduation-cap mr-2"></i>Quiz
-                    </button>
-                    <button onclick="navigateTo('references')" id="nav-references" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all">
-                        <i class="fa-solid fa-bookmark mr-2"></i>Tài Liệu
-                    </button>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="globalSearch" onkeyup="filterContent()" placeholder="Tìm kiếm ADN, Mendel, Đột biến...">
                 </div>
             </div>
-        </div>
-
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-900/95 px-4 pt-4 pb-6 space-y-3 absolute w-full shadow-2xl">
-            <button onclick="navigateTo('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-xl text-base font-medium text-emerald-400 bg-slate-800/80 flex items-center transition-all active:scale-95">
-                <i class="fa-solid fa-house w-8 text-center"></i>Trang Chủ
-            </button>
-            <button onclick="navigateTo('theory'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center transition-all active:scale-95">
-                <i class="fa-solid fa-book-open w-8 text-center"></i>Lý Thuyết Wiki
-            </button>
-            <button onclick="navigateTo('lab'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center transition-all active:scale-95">
-                <i class="fa-solid fa-flask-vial w-8 text-center"></i>Phòng Thí Nghiệm
-            </button>
-            <button onclick="navigateTo('quiz'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center transition-all active:scale-95">
-                <i class="fa-solid fa-graduation-cap w-8 text-center"></i>Luyện Tập Quiz
-            </button>
-            <button onclick="navigateTo('references'); toggleMobileMenu()" class="w-full text-left px-4 py-3.5 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 flex items-center transition-all active:scale-95">
-                <i class="fa-solid fa-bookmark w-8 text-center"></i>Tài Liệu Tham Khảo
-            </button>
         </div>
     </header>
 
-    <main id="main-container" class="flex-grow">
-        <!-- ================= SECTION 1: HOME & HERO ================= -->
-        <section id="section-home" class="page-section space-y-12 sm:space-y-16 py-8">
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-                <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-sky-500/10 rounded-3xl blur-3xl -z-10"></div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider hover:bg-emerald-500/20 transition-colors cursor-default">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span>Nền Tảng Sinh Học Thế Hệ Mới</span>
-                        </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                            Khám Phá Mật Mã <br class="hidden sm:block">
-                            <span class="gradient-text">Di Truyền & Sự Sống</span>
-                        </h1>
-                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            Chào mừng bạn đến với <strong>Genetics Learning Hub</strong> – Nơi biến những kiến thức Di truyền học phức tạp thành trải nghiệm tương tác trực quan. Từ quy luật Mendel đến công nghệ chỉnh sửa gen CRISPR.
-                        </p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="badge"><i class="fa-solid fa-sparkles"></i> Hệ Thống Tra Cứu & Học Tập Chuyên Sâu</div>
+            <h1>Bách Khoa Toàn Thư <br><span class="gradient-text">Di Truyền Học Modern</span></h1>
+            <p>Khám phá toàn bộ tri thức di truyền học từ phân tử đến quần thể. Hệ thống bài giảng chuẩn hóa, công cụ tính toán quy luật di truyền và bài tập trắc nghiệm có lời giải chi tiết.</p>
+            
+            <div class="hero-btns">
+                <a href="#wiki" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Bắt đầu khám phá</a>
+                <a href="#tools" class="btn btn-outline"><i class="fa-solid fa-calculator"></i> Máy tính Di truyền</a>
+            </div>
 
-                        <div class="pt-4 flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
-                            <button onclick="navigateTo('theory')" class="px-7 py-3.5 rounded-xl gradient-bg text-white font-bold text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-1 transition-all flex items-center justify-center">
-                                <i class="fa-solid fa-atom mr-2"></i> Bắt Đầu Học Thuyết
-                            </button>
-                            <button onclick="navigateTo('lab')" class="px-7 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-base transition-all hover:-translate-y-1 flex items-center justify-center shadow-lg">
-                                <i class="fa-solid fa-microscope mr-2 text-emerald-400"></i> Vào Lab Thực Hành
-                            </button>
-                        </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-num">05</span>
+                    <span class="stat-label">Chương lý thuyết</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Minh họa HD & Sơ đồ</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">AI Tool</span>
+                    <span class="stat-label">Tính toán tự động</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="img-wrapper main-img">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1000&q=80" alt="Cấu trúc xoắn kép ADN">
+                <div class="floating-card c1">
+                    <i class="fa-solid fa-microscope text-cyan"></i>
+                    <div>
+                        <strong>Cấu trúc phân tử HD</strong>
+                        <p>Xoắn kép Watson-Crick 3.4nm</p>
                     </div>
-
-                    <div class="lg:col-span-5 relative hidden sm:block">
-                        <div class="glass-card rounded-2xl p-3 overflow-hidden border border-emerald-500/30 relative group">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="DNA Double Helix" class="w-full h-72 lg:h-96 object-cover rounded-xl opacity-90 group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-panel border border-white/10 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/40">
-                                        <i class="fa-solid fa-dna text-2xl text-emerald-400 dna-node"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-white text-base">Chuỗi Xoắn Kép DNA</h4>
-                                        <p class="text-xs text-slate-300 mt-1">Khám phá 3.2 tỷ cặp bazo nitơ trong bộ gen người</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="floating-card c2">
+                    <i class="fa-solid fa-code-branch text-purple"></i>
+                    <div>
+                        <strong>Mã di truyền</strong>
+                        <p>64 Codon mã hóa 20 Amino Acid</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Core Modules -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Lộ Trình Học Tập Chuyên Sâu</h2>
-                    <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
-                </div>
+    <!-- Filter & Quick Access Bar -->
+    <div class="quick-bar-container container">
+        <div class="quick-bar">
+            <span class="quick-title"><i class="fa-solid fa-bolt"></i> Truy cập nhanh:</span>
+            <div class="quick-tags">
+                <a href="#chuong1" class="tag">#ADN_&_ARN</a>
+                <a href="#chuong1-2" class="tag">#Nhan_doi_ADN</a>
+                <a href="#chuong2" class="tag">#Quy_luat_Mendel</a>
+                <a href="#chuong2-2" class="tag">#Hoan_vi_Gene</a>
+                <a href="#chuong3" class="tag">#Dot_bien_Gene</a>
+                <a href="#chuong4" class="tag">#Hardy_Weinberg</a>
+                <a href="#chuong5" class="tag">#CRISPR_Cas9</a>
+            </div>
+        </div>
+    </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Module Cards (Enhanced) -->
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('mendel'), 100)">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl font-bold mb-4 group-hover:bg-emerald-500/20 transition-colors">01</div>
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">Quy Luật Mendel</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Nền tảng của di truyền học cổ điển, phân tích thí nghiệm lai đậu Hà Lan và các quy luật phân ly.</p>
-                        </div>
-                    </div>
+    <!-- Main Content Layout (Sidebar + Wiki Content) -->
+    <main class="main-layout container">
+        
+        <!-- Sticky Sidebar Nav -->
+        <aside class="sidebar">
+            <div class="sidebar-sticky">
+                <h3 class="sidebar-title"><i class="fa-solid fa-list-check"></i> Mục lục bài học</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#chuong1" class="side-link active"><i class="fa-solid fa-atom"></i> Ch 1: Cơ sở Phân tử & Tế bào</a></li>
+                    <li><a href="#chuong2" class="side-link"><i class="fa-solid fa-diagram-project"></i> Ch 2: Quy luật Di truyền Mendel</a></li>
+                    <li><a href="#chuong3" class="side-link"><i class="fa-solid fa-dna"></i> Ch 3: Biến dị Gene & NST</a></li>
+                    <li><a href="#chuong4" class="side-link"><i class="fa-solid fa-users-rectangle"></i> Ch 4: Di truyền Quần thể</a></li>
+                    <li><a href="#chuong5" class="side-link"><i class="fa-solid fa-flask-vial"></i> Ch 5: Công nghệ Gene & Biotech</a></li>
+                </ul>
 
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('dna'), 100)">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl font-bold mb-4 group-hover:bg-teal-500/20 transition-colors">02</div>
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">DNA, RNA & Protein</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Sinh học phân tử: Cấu trúc không gian của DNA, quá trình sao chép, phiên mã tạo mRNA và dịch mã.</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('mutation'), 100)">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl font-bold mb-4 group-hover:bg-sky-500/20 transition-colors">03</div>
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">Đột Biến Di Truyền</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Cơ chế phát sinh, hậu quả và ý nghĩa của đột biến gen (cấp độ phân tử) và đột biến nhiễm sắc thể.</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('population'), 100)">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl font-bold mb-4 group-hover:bg-amber-500/20 transition-colors">04</div>
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Di Truyền Quần Thể</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Nghiên cứu cấu trúc di truyền của quần thể tự nhiên và định luật cân bằng Hardy-Weinberg kinh điển.</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between group cursor-pointer" onclick="navigateTo('theory'); setTimeout(()=>switchTheoryTab('crispr'), 100)">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl font-bold mb-4 group-hover:bg-purple-500/20 transition-colors">05</div>
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Công Nghệ CRISPR</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed mb-4">Ứng dụng "kéo sinh học" CRISPR-Cas9 trong công nghệ chỉnh sửa gen chính xác và y học hiện đại.</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-2 border-emerald-500/40 bg-emerald-950/30 hover:bg-emerald-900/40">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-slate-950 text-xl font-bold mb-4 shadow-lg shadow-emerald-500/40">
-                                <i class="fa-solid fa-vial animate-bounce"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Thực Hành Interactive</h3>
-                            <p class="text-sm text-emerald-200/80 leading-relaxed mb-6">Trải nghiệm phòng thí nghiệm ảo: Chạy mô phỏng dịch mã, giải khung Punnett trực quan.</p>
-                        </div>
-                        <button onclick="navigateTo('lab')" class="w-full py-3 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-sm hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/30">
-                            Mở Phòng Thí Nghiệm
-                        </button>
-                    </div>
+                <div class="sidebar-widget">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Mẹo ghi nhớ</h4>
+                    <p>Mã mở đầu tổng hợp Protein luôn là <strong>5'-AUG-3'</strong> (mã hóa Methionine ở sinh vật nhân thực).</p>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- ================= SECTION 2: WIKI THEORY ================= -->
-        <section id="section-theory" class="page-section hidden py-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-8 sm:hidden">
-                    <h2 class="text-2xl font-bold text-white">Thư Viện Kiến Thức</h2>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <!-- Sidebar Selector -->
-                    <div class="lg:w-1/4 flex flex-col gap-2 overflow-x-auto sm:overflow-visible pb-4 sm:pb-0 hide-scrollbar">
-                        <h3 class="hidden lg:block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-3">Danh Mục Bài Học</h3>
-                        
-                        <div class="flex lg:flex-col gap-2 min-w-max lg:min-w-0">
-                            <button onclick="switchTheoryTab('mendel')" id="tab-btn-mendel" class="theory-tab-btn flex-1 lg:w-full text-left p-3 lg:p-4 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all bg-emerald-600 text-white shadow-md shadow-emerald-500/20">
-                                <i class="fa-solid fa-seedling w-5 text-center"></i><span class="whitespace-nowrap lg:whitespace-normal">1. Quy luật Mendel</span>
-                            </button>
-                            <button onclick="switchTheoryTab('dna')" id="tab-btn-dna" class="theory-tab-btn flex-1 lg:w-full text-left p-3 lg:p-4 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 bg-slate-800/50 hover:bg-slate-700/80">
-                                <i class="fa-solid fa-dna w-5 text-center"></i><span class="whitespace-nowrap lg:whitespace-normal">2. DNA & Dịch mã</span>
-                            </button>
-                            <button onclick="switchTheoryTab('mutation')" id="tab-btn-mutation" class="theory-tab-btn flex-1 lg:w-full text-left p-3 lg:p-4 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 bg-slate-800/50 hover:bg-slate-700/80">
-                                <i class="fa-solid fa-triangle-exclamation w-5 text-center"></i><span class="whitespace-nowrap lg:whitespace-normal">3. Đột biến Gen</span>
-                            </button>
-                            <button onclick="switchTheoryTab('population')" id="tab-btn-population" class="theory-tab-btn flex-1 lg:w-full text-left p-3 lg:p-4 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 bg-slate-800/50 hover:bg-slate-700/80">
-                                <i class="fa-solid fa-users-rays w-5 text-center"></i><span class="whitespace-nowrap lg:whitespace-normal">4. DT Quần thể</span>
-                            </button>
-                            <button onclick="switchTheoryTab('crispr')" id="tab-btn-crispr" class="theory-tab-btn flex-1 lg:w-full text-left p-3 lg:p-4 rounded-xl text-sm font-semibold flex items-center space-x-3 transition-all text-slate-300 bg-slate-800/50 hover:bg-slate-700/80">
-                                <i class="fa-solid fa-scissors w-5 text-center"></i><span class="whitespace-nowrap lg:whitespace-normal">5. Công nghệ CRISPR</span>
-                            </button>
-                        </div>
-                    </div>
+        <!-- Main Wiki Articles -->
+        <section id="wiki" class="wiki-content">
 
-                    <!-- Theory Main Content -->
-                    <div class="lg:w-3/4">
-                        <!-- Topic 1: Mendel -->
-                        <div id="theory-content-mendel" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
-                            <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
-                                <div>
-                                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Di Truyền Cổ Điển</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Các Quy Luật Di Truyền Của Mendel</h2>
-                                </div>
-                                <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center">
-                                    <i class="fa-solid fa-check-circle mr-1.5"></i> Đã Xác Minh
-                                </span>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                                <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=800&q=80" alt="Mendel Peas" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700">
-                                <div class="space-y-4">
-                                    <h4 class="font-bold text-emerald-400 text-xl border-l-4 border-emerald-500 pl-3">Gregor Johann Mendel (1822–1884)</h4>
-                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
-                                        Mendel được coi là <strong>Cha đẻ của Di truyền học</strong>. Qua nhiều năm trồng và lai tạo cây Đậu Hà Lan (Pisum sativum), ông đã khám phá ra các quy luật cơ bản về di truyền, đặt nền móng cho khoa học di truyền hiện đại.
-                                    </p>
-                                    <ul class="space-y-2 mt-4 text-sm text-slate-300">
-                                        <li class="flex items-start"><i class="fa-solid fa-angle-right mt-1 mr-2 text-emerald-500"></i> <strong>Quy luật phân ly:</strong> Mỗi tính trạng do một cặp alen quy định. Trong quá trình phát sinh giao tử, các alen phân ly đồng đều.</li>
-                                        <li class="flex items-start"><i class="fa-solid fa-angle-right mt-1 mr-2 text-emerald-500"></i> <strong>Quy luật phân ly độc lập:</strong> Các cặp alen quy định các tính trạng khác nhau phân ly độc lập với nhau.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Topic 2: DNA -->
-                        <div id="theory-content-dna" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
-                            <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
-                                <div>
-                                    <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Sinh Học Phân Tử</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Cấu Trúc DNA & Cơ Chế Dịch Mã</h2>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                                <div class="space-y-4 order-2 md:order-1">
-                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">Thuyết Trung Tâm (Central Dogma)</h4>
-                                    <p class="text-sm text-slate-300 leading-relaxed text-justify">
-                                        Luồng thông tin di truyền trong tế bào sinh vật chảy theo một chiều: Từ DNA phiên mã tạo ra RNA, và từ RNA dịch mã để tổng hợp nên chuỗi Polypeptide (Protein), từ đó biểu hiện thành tính trạng.
-                                    </p>
-                                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 mt-4 text-center font-mono text-teal-300">
-                                        DNA ➔ Transcription ➔ mRNA ➔ Translation ➔ Protein
-                                    </div>
-                                    <p class="text-sm text-slate-300 leading-relaxed mt-4">
-                                        <strong>Nguyên tắc bổ sung:</strong> Adenine (A) liên kết với Thymine (T) bằng 2 liên kết hidro. Guanine (G) liên kết với Cytosine (C) bằng 3 liên kết hidro.
-                                    </p>
-                                </div>
-                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80" alt="DNA Structure" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700 order-1 md:order-2">
-                            </div>
-                        </div>
-
-                        <!-- Topic 3: Mutation -->
-                        <div id="theory-content-mutation" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
-                             <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
-                                <div>
-                                    <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Sự Biến Dị</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Đột Biến Gen & Nhiễm Sắc Thể</h2>
-                                </div>
-                            </div>
-                            <div class="flex flex-col space-y-6 mt-4">
-                                <p class="text-base text-slate-300 leading-relaxed">Đột biến là những biến đổi bất thường trong vật chất di truyền ở cấp độ phân tử (DNA) hoặc cấp độ tế bào (Nhiễm sắc thể). Đây là nguồn nguyên liệu sơ cấp quan trọng cho quá trình tiến hóa.</p>
-                                
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700 hover:border-sky-500/50 transition-colors">
-                                        <h4 class="text-lg font-bold text-sky-400 mb-3"><i class="fa-solid fa-microscope mr-2"></i>Đột Biến Gen</h4>
-                                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside marker:text-sky-500">
-                                            <li>Thay thế một cặp Nucleotide.</li>
-                                            <li>Thêm một hoặc nhiều cặp Nucleotide.</li>
-                                            <li>Mất một hoặc nhiều cặp Nucleotide (Gây dịch khung đọc mã).</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700 hover:border-sky-500/50 transition-colors">
-                                        <h4 class="text-lg font-bold text-sky-400 mb-3"><i class="fa-solid fa-arrows-to-circle mr-2"></i>Đột Biến NST</h4>
-                                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside marker:text-sky-500">
-                                            <li><strong>Cấu trúc:</strong> Mất đoạn, Lặp đoạn, Đảo đoạn, Chuyển đoạn.</li>
-                                            <li><strong>Số lượng:</strong> Lệch bội (Hội chứng Down 2n+1), Đa bội.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Topic 4: Population -->
-                        <div id="theory-content-population" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
-                             <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
-                                <div>
-                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Tiến Hóa Cấp Vi Mô</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Di Truyền Học Quần Thể</h2>
-                                </div>
-                            </div>
-                            <div class="flex flex-col space-y-6 mt-4">
-                                <div class="bg-amber-950/20 p-6 rounded-xl border border-amber-500/30 text-center">
-                                    <h4 class="text-xl font-bold text-amber-400 mb-3">Định Luật Hardy-Weinberg</h4>
-                                    <p class="text-3xl font-mono text-white mb-2">p² + 2pq + q² = 1</p>
-                                    <p class="text-sm text-amber-200/70">Trong đó p và q là tần số của alen trội (A) và lặn (a). p + q = 1.</p>
-                                </div>
-                                <p class="text-base text-slate-300 leading-relaxed text-justify">
-                                    Định luật phát biểu rằng trong một quần thể ngẫu phối, kích thước lớn, không có đột biến, không có di/nhập gen và không có chọn lọc tự nhiên thì tần số alen và thành phần kiểu gen của quần thể sẽ duy trì không đổi từ thế hệ này sang thế hệ khác.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Topic 5: CRISPR -->
-                        <div id="theory-content-crispr" class="theory-content glass-panel rounded-2xl p-6 sm:p-8 space-y-6 hidden">
-                             <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
-                                <div>
-                                    <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Công Nghệ Tương Lai</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Chỉnh Sửa Gen CRISPR-Cas9</h2>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-4">
-                                <div class="space-y-4">
-                                    <p class="text-base text-slate-300 leading-relaxed text-justify">
-                                        CRISPR-Cas9 là một công cụ chỉnh sửa gen mạnh mẽ, được ví như chiếc "kéo sinh học", cho phép các nhà khoa học cắt và dán DNA với độ chính xác chưa từng có.
-                                    </p>
-                                    <ul class="space-y-3 mt-4 text-sm text-slate-300">
-                                        <li class="flex items-start"><i class="fa-solid fa-crosshairs mt-1 mr-3 text-purple-500 text-lg"></i> <strong>Guide RNA (gRNA):</strong> Đóng vai trò như GPS dẫn đường, tìm kiếm chính xác đoạn DNA cần cắt.</li>
-                                        <li class="flex items-start"><i class="fa-solid fa-scissors mt-1 mr-3 text-purple-500 text-lg"></i> <strong>Enzyme Cas9:</strong> Đóng vai trò là chiếc kéo, cắt đứt cả 2 mạch của phân tử DNA tại vị trí mục tiêu.</li>
-                                    </ul>
-                                </div>
-                                <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=800&q=80" alt="CRISPR Technology" class="w-full h-full min-h-[200px] object-cover rounded-xl shadow-lg border border-slate-700">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= SECTION 3: LAB ================= -->
-        <section id="section-lab" class="page-section hidden py-10">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                <div class="text-center max-w-3xl mx-auto">
-                    <span class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Phòng Thí Nghiệm Ảo</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">Interactive Genetics Lab</h2>
-                    <p class="text-slate-400 mt-3 text-sm sm:text-base">Mô phỏng trực quan các quá trình và tính toán di truyền</p>
+            <!-- CHƯƠNG 1 -->
+            <article id="chuong1" class="wiki-card searchable">
+                <div class="card-header">
+                    <span class="chapter-tag cyan">Chương I</span>
+                    <h2>Cơ Sở Vật Chất Và Cơ Chế Di Truyền Phân Tử</h2>
                 </div>
 
-                <div class="flex justify-center w-full overflow-x-auto hide-scrollbar pb-2">
-                    <div class="inline-flex p-1.5 rounded-2xl glass-panel border border-slate-700/80 min-w-max">
-                        <button onclick="switchLabTool('punnett')" id="lab-tab-punnett" class="lab-tab-btn px-4 sm:px-6 py-3 rounded-xl text-sm font-bold transition-all bg-emerald-600 text-white shadow-md">
-                            <i class="fa-solid fa-table-cells mr-2"></i>Khung Punnett
-                        </button>
-                        <button onclick="switchLabTool('central-dogma')" id="lab-tab-central-dogma" class="lab-tab-btn px-4 sm:px-6 py-3 rounded-xl text-sm font-bold text-slate-400 hover:text-white transition-all hover:bg-slate-800/50">
-                            <i class="fa-solid fa-code mr-2"></i>Mô Phỏng Dịch Mã
-                        </button>
-                        <button onclick="switchLabTool('hardy')" id="lab-tab-hardy" class="lab-tab-btn px-4 sm:px-6 py-3 rounded-xl text-sm font-bold text-slate-400 hover:text-white transition-all hover:bg-slate-800/50">
-                            <i class="fa-solid fa-calculator mr-2"></i>Máy tính Hardy-Weinberg
-                        </button>
-                    </div>
-                </div>
+                <!-- 1.1 ADN -->
+                <div id="chuong1-1" class="topic-section">
+                    <h3>1. Cấu Tạo & Cấu Trúc Xoắn Kép ADN</h3>
+                    <p>ADN (Deoxyribonucleic Acid) là đại phân tử sinh học mang thông tin di truyền của cơ thể sống. ADN được cấu tạo theo nguyên tắc đa phân, đơn phân là các **Nucleotide**.</p>
 
-                <!-- TOOL 1: PUNNETT -->
-                <div id="lab-tool-punnett" class="lab-tool-content space-y-6">
-                    <div class="glass-panel rounded-2xl p-5 sm:p-8 border border-emerald-500/20 shadow-2xl">
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center"><i class="fa-solid fa-square-poll-horizontal mr-3 text-emerald-400"></i> Công Cụ Lai Chéo Punnett</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
-                            <div>
-                                <label class="block text-xs font-bold text-emerald-400 uppercase mb-2 ml-1">Kiểu Gen Bố (P1)</label>
-                                <select id="punnett-p1" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3.5 text-white font-mono focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
-                                    <option value="Aa">Aa (Dị hợp 1 cặp)</option>
-                                    <option value="AA">AA (Đồng hợp trội)</option>
-                                    <option value="aa">aa (Đồng hợp lặn)</option>
-                                    <option value="AaBb" selected>AaBb (Dị hợp 2 cặp)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-emerald-400 uppercase mb-2 ml-1">Kiểu Gen Mẹ (P2)</label>
-                                <select id="punnett-p2" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3.5 text-white font-mono focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
-                                    <option value="Aa">Aa (Dị hợp 1 cặp)</option>
-                                    <option value="AA">AA (Đồng hợp trội)</option>
-                                    <option value="aa">aa (Đồng hợp lặn)</option>
-                                    <option value="AaBb" selected>AaBb (Dị hợp 2 cặp)</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end mt-2 sm:mt-0">
-                                <button onclick="calculatePunnett()" class="w-full py-3.5 rounded-xl gradient-bg text-white font-bold text-base shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-1 transition-all">
-                                    Lập Khung Lai
-                                </button>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4><i class="fa-solid fa-cubes text-cyan"></i> Thành phần 1 Nucleotide:</h4>
+                            <ul>
+                                <li><strong>Gốc Phosphate:</strong> $-\text{PO}_4^{3-}$</li>
+                                <li><strong>Đường Deoxyribose:</strong> $\text{C}_5\text{H}_{10}\text{O}_4$</li>
+                                <li><strong>Base Nitrogen:</strong> Adenine (A), Thymine (T), Guanine (G), Cytosine (X/C).</li>
+                            </ul>
+                            <div class="formula-box">
+                                <p><strong>Chiều dài ADN:</strong> $L = \frac{N}{2} \times 3.4\,\text{Å}$</p>
+                                <p><strong>Khối lượng:</strong> $M = N \times 300\,\text{ĐvC}$</p>
                             </div>
                         </div>
-
-                        <div id="punnett-grid-container" class="overflow-x-auto pb-4 custom-scrollbar">
-                            <!-- Khung Punnett Sẽ Render Ở Đây (via JS) -->
-                            <div class="w-full h-32 border-2 border-dashed border-slate-700 rounded-xl flex items-center justify-center text-slate-500 text-sm">
-                                Bấm "Lập Khung Lai" để hiển thị kết quả
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 mt-4 border-t border-slate-800">
-                            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
-                                <h5 class="text-sm font-bold text-emerald-400 mb-3 flex items-center"><i class="fa-solid fa-chart-pie mr-2"></i> Tỉ Lệ Kiểu Gen</h5>
-                                <div id="genotype-ratios" class="font-mono text-sm space-y-2 text-slate-300">Chưa có dữ liệu</div>
-                            </div>
-                            <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
-                                <h5 class="text-sm font-bold text-teal-400 mb-3 flex items-center"><i class="fa-solid fa-eye mr-2"></i> Tỉ Lệ Kiểu Hình</h5>
-                                <div id="phenotype-ratios" class="font-mono text-sm space-y-2 text-slate-300">Chưa có dữ liệu</div>
-                            </div>
+                        <div class="figure-box">
+                            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Cấu trúc liên kết Hydro trong ADN">
+                            <figcaption>Hình 1.1: Liên kết Hydrogen giữa 2 mạch bổ sung ($A = T$ bằng 2 liên kết, $G \equiv X$ bằng 3 liên kết).</figcaption>
                         </div>
                     </div>
                 </div>
 
-                <!-- TOOL 2 & 3 giữ logic tương tự, nâng cấp CSS form giống TOOL 1 -->
-                <!-- Central Dogma -->
-                <div id="lab-tool-central-dogma" class="lab-tool-content space-y-6 hidden">
-                    <div class="glass-panel rounded-2xl p-5 sm:p-8 border border-teal-500/20 shadow-2xl">
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center"><i class="fa-solid fa-dna mr-3 text-teal-400"></i> Trình Biên Dịch Sinh Học</h3>
-                        <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                            <input id="dna-input" type="text" value="TAC GGC TTA CTT ACT" class="flex-grow bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 text-white font-mono uppercase text-base sm:text-lg focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-all" placeholder="Nhập trình tự DNA (VD: TAC GGC...)">
-                            <button onclick="runCentralDogmaSim()" class="px-8 py-4 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold transition-all shadow-lg shadow-teal-500/20">Biên Dịch</button>
+                <!-- 1.2 Tái bản ADN -->
+                <div id="chuong1-2" class="topic-section">
+                    <h3>2. Cơ Chế Tái Bản ADN (Replication)</h3>
+                    <p>Quá trình nhân đôi ADN diễn ra trong nhân tế bào tại kỳ trung gian của quá trình phân bào, tuân theo **Nguyên tắc bổ sung** và **Nguyên tắc bán bảo toàn**.</p>
+
+                    <div class="figure-banner">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80" alt="Sơ đồ chạc tái bản ADN">
+                        <figcaption>Hình 1.2: Chạc tái bản ADN với sự tham gia của hệ thống Enzyme chuyên biệt.</figcaption>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên Enzyme</th>
+                                    <th>Chức năng sinh học chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Helicase</strong></td>
+                                    <td>Tháo xoắn chuỗi đôi, bẻ gãy các liên kết Hydrogen tạo chạc tái bản chữ Y.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ARN Polymerase (Mồi)</strong></td>
+                                    <td>Tổng hợp đoạn mồi ARN (RNA primer) cung cấp đầu $3'-\text{OH}$ tự do.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ADN Polymerase III</strong></td>
+                                    <td>Lắp ráp các Nucleotide tự do theo chiều $5' \rightarrow 3'$. Mạch khuôn $3' \rightarrow 5'$ tổng hợp liên tục; mạch $5' \rightarrow 3'$ tổng hợp gián đoạn (đoạn Okazaki).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ligase</strong></td>
+                                    <td>Nối các đoạn Okazaki lại thành mạch liên tục hoàn chỉnh bằng liên kết phosphodiester.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.3 Phiên mã & Dịch mã -->
+                <div id="chuong1-3" class="topic-section">
+                    <h3>3. Phiên Mã & Dịch Mã (Phiên Dịch Mã Di Truyền)</h3>
+                    <div class="grid-3col">
+                        <div class="card-mini">
+                            <i class="fa-solid fa-file-code icon-big text-cyan"></i>
+                            <h4>mARN (Thông tin)</h4>
+                            <p>Mang bản sao mã di truyền từ ADN nhân ra Ribosome. Chứa các bộ ba Codon.</p>
                         </div>
-                        <div class="space-y-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 font-mono text-sm sm:text-base">
-                            <div class="flex flex-col sm:flex-row sm:items-center"><span class="w-24 text-slate-400 font-sans text-xs uppercase font-bold tracking-wider">DNA Mạch Gốc</span> <span id="visual-dna" class="text-emerald-400 mt-1 sm:mt-0 font-bold bg-emerald-900/20 px-3 py-1 rounded-md">TAC GGC TTA CTT ACT</span></div>
-                            <div class="flex flex-col sm:flex-row sm:items-center"><span class="w-24 text-slate-400 font-sans text-xs uppercase font-bold tracking-wider">mRNA</span> <span id="visual-mrna" class="text-teal-300 mt-1 sm:mt-0 bg-teal-900/20 px-3 py-1 rounded-md">AUG CCG AAU GAA UGA</span></div>
-                            <div class="flex flex-col sm:flex-row sm:items-start pt-2 border-t border-slate-800"><span class="w-24 text-slate-400 font-sans text-xs uppercase font-bold tracking-wider mt-2">Chuỗi Protein</span> 
-                                <div id="visual-protein" class="flex flex-wrap gap-2 mt-2 sm:mt-0">
-                                    <span class="px-3 py-1 bg-purple-600/30 border border-purple-500/50 rounded-lg text-purple-200">Met (Start)</span>
-                                    <span class="px-3 py-1 bg-blue-600/30 border border-blue-500/50 rounded-lg text-blue-200">Pro</span>
-                                    <span class="px-3 py-1 bg-blue-600/30 border border-blue-500/50 rounded-lg text-blue-200">Asn</span>
-                                    <span class="px-3 py-1 bg-blue-600/30 border border-blue-500/50 rounded-lg text-blue-200">Glu</span>
-                                    <span class="px-3 py-1 bg-red-600/30 border border-red-500/50 rounded-lg text-red-200">Stop</span>
-                                </div>
-                            </div>
+                        <div class="card-mini">
+                            <i class="fa-solid fa-truck-ramp-box icon-big text-purple"></i>
+                            <h4>tARN (Vận chuyển)</h4>
+                            <p>Vận chuyển Amino Acid. Đầu dưới chứa bộ ba Anticodon tương ứng với Codon mARN.</p>
+                        </div>
+                        <div class="card-mini">
+                            <i class="fa-solid fa-microchip icon-big text-pink"></i>
+                            <h4>rARN (Ribosome)</h4>
+                            <p>Cấu tạo nên Ribosome - nhà máy trực tiếp tổng hợp chuỗi Polypeptide.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CHƯƠNG 2 -->
+            <article id="chuong2" class="wiki-card searchable">
+                <div class="card-header">
+                    <span class="chapter-tag green">Chương II</span>
+                    <h2>Quy Luật Di Truyền Mendel Và Mở Rộng</h2>
+                </div>
+
+                <div class="topic-section">
+                    <h3>1. Các Quy Luật Di Truyền Cơ Bản</h3>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4><i class="fa-solid fa-scroll text-green"></i> Quy luật Mendel:</h4>
+                            <ul>
+                                <li><strong>Phân li:</strong> Mỗi tính trạng do một cặp allele quy định. Khi giảm phân, cặp allele phân li về các giao tử.</li>
+                                <li><strong>Phân li độc lập:</strong> Các cặp allele nằm trên các cặp NST tương đồng khác nhau phân li độc lập trong giảm phân. Tỉ lệ F2: $(3:1)^n$.</li>
+                            </ul>
+                        </div>
+                        <div class="info-box">
+                            <h4><i class="fa-solid fa-code-merge text-gold"></i> Tương tác Gene phi Allele:</h4>
+                            <ul>
+                                <li><strong>Tương tác Bổ sung:</strong> Tỉ lệ $9:7$, $9:3:3:1$, $9:6:1$.</li>
+                                <li><strong>Tương tác Át chế:</strong> Tỉ lệ $12:3:1$, $13:3$, $9:3:4$.</li>
+                                <li><strong>Tác động cộng gộp:</strong> Tính trạng số lượng, tỉ lệ $15:1$.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hardy-Weinberg -->
-                <div id="lab-tool-hardy" class="lab-tool-content space-y-6 hidden">
-                    <div class="glass-panel rounded-2xl p-5 sm:p-8 border border-amber-500/20 shadow-2xl">
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center"><i class="fa-solid fa-users mr-3 text-amber-400"></i> Mô Phỏng Quần Thể</h3>
-                        <div class="max-w-md">
-                            <label class="block text-xs font-bold text-amber-400 uppercase mb-2 ml-1">Kéo để điều chỉnh tần số alen trội p (A):</label>
-                            <div class="flex items-center gap-4">
-                                <input id="hw-p-slider" type="range" min="0" max="1" step="0.01" value="0.6" class="w-full accent-amber-500 h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
-                                <input id="hw-p-input" type="number" step="0.01" min="0" max="1" value="0.6" oninput="document.getElementById('hw-p-slider').value = this.value; calculateHardyFromP()" class="w-20 bg-slate-900 border border-slate-700 rounded-xl p-2 text-center text-white font-mono">
-                            </div>
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center shadow-inner">
-                            <div class="p-4 rounded-xl bg-slate-800/50"><span class="text-xs text-slate-400 block mb-1 uppercase font-bold tracking-wider">Tần số A (p)</span><span id="hw-res-p" class="text-2xl font-bold text-emerald-400">0.60</span></div>
-                            <div class="p-4 rounded-xl bg-slate-800/50"><span class="text-xs text-slate-400 block mb-1 uppercase font-bold tracking-wider">Tần số a (q)</span><span id="hw-res-q" class="text-2xl font-bold text-teal-400">0.40</span></div>
-                            <div class="p-4 rounded-xl border border-sky-500/20 bg-sky-900/10"><span class="text-xs text-slate-400 block mb-1 uppercase font-bold tracking-wider">Kiểu gen AA</span><span id="hw-res-p2" class="text-2xl font-bold text-sky-400">36%</span></div>
-                            <div class="p-4 rounded-xl border border-amber-500/20 bg-amber-900/10"><span class="text-xs text-slate-400 block mb-1 uppercase font-bold tracking-wider">Kiểu gen Aa</span><span id="hw-res-2pq" class="text-2xl font-bold text-amber-400">48%</span></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ================= SECTION 4: QUIZ ================= -->
-        <section id="section-quiz" class="page-section hidden py-12">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-white">Kiểm Tra Kiến Thức</h2>
-                    <p class="text-slate-400 mt-2">10 câu hỏi trắc nghiệm ngẫu nhiên từ cơ bản đến nâng cao</p>
-                </div>
-                <!-- Demo Quiz Card -->
-                <div id="quiz-card" class="glass-card rounded-2xl p-6 sm:p-10 space-y-6 border-t-4 border-t-emerald-500">
-                    <div class="flex justify-between items-center text-sm font-semibold text-slate-400 mb-2">
-                        <span>Câu hỏi 1/10</span>
-                        <span class="text-amber-400"><i class="fa-solid fa-fire mr-1"></i> Mức độ: Cơ bản</span>
-                    </div>
-                    <h3 id="quiz-question-text" class="text-xl sm:text-2xl font-bold text-white leading-snug">
-                        Trong cấu trúc không gian của phân tử DNA, các base nitơ giữa 2 mạch liên kết với nhau bằng loại liên kết nào?
-                    </h3>
-                    <div id="quiz-options-container" class="space-y-3 pt-4">
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">A. Liên kết ion</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-500/20 text-white transition-all font-medium ring-2 ring-emerald-500"><i class="fa-solid fa-circle-check mr-2 text-emerald-400"></i> B. Liên kết hydro (Đúng)</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">C. Liên kết cộng hóa trị</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">D. Liên kết peptide</button>
-                    </div>
-                    <div id="quiz-explanation-box" class="p-5 rounded-xl bg-emerald-900/20 border border-emerald-500/30 text-sm text-slate-200 mt-6">
-                        <p id="quiz-explanation-text"><strong>Giải thích:</strong> Theo nguyên tắc bổ sung, A liên kết với T bằng 2 liên kết hydro, G liên kết với C bằng 3 liên kết hydro. Điều này giúp hai mạch của DNA gắn kết nhưng cũng dễ dàng tách ra trong quá trình nhân đôi.</p>
-                    </div>
-                    <div class="flex justify-end pt-4">
-                        <button id="quiz-next-btn" class="px-8 py-3.5 rounded-xl gradient-bg text-white font-bold text-sm shadow-lg hover:shadow-emerald-500/40 transition-all">Câu Tiếp Theo <i class="fa-solid fa-arrow-right ml-2"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= SECTION 5: REFERENCES ================= -->
-        <section id="section-references" class="page-section hidden py-12">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-white">Tài Liệu Tham Khảo</h2>
-                    <p class="text-slate-400 mt-3">Các cơ sở dữ liệu sinh học uy tín hàng đầu thế giới</p>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <a href="https://www.ncbi.nlm.nih.gov/" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4 group">
-                        <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-database text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-lg group-hover:text-blue-400 transition-colors">NCBI</h4>
-                            <p class="text-sm text-slate-400 mt-1">Trung tâm Thông tin Công nghệ sinh học Quốc gia Hoa Kỳ.</p>
-                        </div>
-                    </a>
+                <div id="chuong2-2" class="topic-section">
+                    <h3>2. Liên Kết Gene & Hoán Vị Gene (Morgan)</h3>
+                    <p>Hoán vị gene xảy ra do sự tiếp hợp và trao đổi chéo giữa 2 trong 4 chromatid khác nguồn gốc của cặp NST tương đồng ở kỳ đầu giảm phân I.</p>
                     
-                    <a href="https://www.nature.com/ng/" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4 group">
-                        <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-book-journal-whills text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-lg group-hover:text-red-400 transition-colors">Nature Genetics</h4>
-                            <p class="text-sm text-slate-400 mt-1">Tạp chí khoa học hàng đầu về các nghiên cứu di truyền đột phá.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://vi.wikipedia.org/wiki/Di_truy%E1%BB%81n_h%E1%BB%8Dc" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4 group">
-                        <div class="w-12 h-12 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-wikipedia-w text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-lg group-hover:text-slate-300 transition-colors">Wikipedia Wiki</h4>
-                            <p class="text-sm text-slate-400 mt-1">Bách khoa toàn thư tổng hợp các kiến thức cơ bản về Genetics.</p>
-                        </div>
-                    </a>
+                    <div class="math-card">
+                        $$f = \frac{\text{Số cá thể mang kiểu hình hoán vị}}{\text{Tổng số cá thể ở thế hệ lai phân tích}} \times 100\% \quad (f \le 50\%)$$
+                    </div>
                 </div>
-            </div>
-        </section>
+            </article>
 
+            <!-- CHƯƠNG 3 -->
+            <article id="chuong3" class="wiki-card searchable">
+                <div class="card-header">
+                    <span class="chapter-tag red">Chương III</span>
+                    <h2>Biến Dị - Đột Biến Gene Và Nhiễm Sắc Thể</h2>
+                </div>
+
+                <div class="topic-section">
+                    <h3>1. Đột Biến Điểm (Point Mutation)</h3>
+                    <div class="grid-3col">
+                        <div class="card-mini border-green">
+                            <h4>Đồng nghĩa (Silent)</h4>
+                            <p>Thay thế nucleotide nhưng không làm thay đổi Amino Acid (do tính thoái hóa của mã di truyền).</p>
+                        </div>
+                        <div class="card-mini border-gold">
+                            <h4>Sai nghĩa (Missense)</h4>
+                            <p>Thay thế nucleotide làm biến đổi 1 Amino Acid trong chuỗi Polypeptide thành Amino Acid khác.</p>
+                        </div>
+                        <div class="card-mini border-red">
+                            <h4>Vô nghĩa (Nonsense)</h4>
+                            <p>Thay thế biến bộ ba mã hóa thành bộ ba kết thúc (UAA, UAG, UGA), làm chuỗi bị ngắn lại.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <h3>2. Đột Biến Cấu Trúc & Số Lượng NST</h3>
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại đột biến</th>
+                                    <th>Cơ chế / Bộ NST</th>
+                                    <th>Ví dụ điển hình</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Đột biến Cấu trúc</strong></td>
+                                    <td>Mất đoạn, Lặp đoạn, Đảo đoạn, Chuyển đoạn.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lệch bội (Anuploidy)</strong></td>
+                                    <td>
+                                        Thể một $(2n-1)$, Thể ba $(2n+1)$, Thể không $(2n-2)$.
+                                    </td>
+                                    <td>Hội chứng Down ($3$ NST 21), Turner ($XO$), Klinefelter ($XXY$).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Đa bội (Polyploidy)</strong></td>
+                                    <td>Tự đa bội ($3n, 4n,...$), Dị đa bội (Lai xa kèm đa bội hóa).</td>
+                                    <td>Dưa hấu không hạt ($3n$), Chuối nhà ($3n$).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CHƯƠNG 4 -->
+            <article id="chuong4" class="wiki-card searchable">
+                <div class="card-header">
+                    <span class="chapter-tag purple">Chương IV</span>
+                    <h2>Di Truyền Học Quần Thể</h2>
+                </div>
+
+                <div class="topic-section">
+                    <h3>1. Định Luật Cân Bằng Hardy - Weinberg</h3>
+                    <p>Trong một quần thể ngẫu phối lý tưởng, tần số tương đối của các allele và thành phần kiểu gene duy trì không đổi qua các thế hệ.</p>
+                    
+                    <div class="math-card">
+                        $$p^2 (AA) + 2pq (Aa) + q^2 (aa) = 1 \quad \text{với} \quad p + q = 1$$
+                    </div>
+                </div>
+            </article>
+
+            <!-- CHƯƠNG 5 -->
+            <article id="chuong5" class="wiki-card searchable">
+                <div class="card-header">
+                    <span class="chapter-tag blue">Chương V</span>
+                    <h2>Công Nghệ Gene Và Ứng Dụng</h2>
+                </div>
+
+                <div class="topic-section">
+                    <h3>1. Quy Trình Tạo ADN Tái Tổ Hợp & CRISPR</h3>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4><i class="fa-solid fa-scissors text-purple"></i> Công cụ kỹ thuật gene:</h4>
+                            <ul>
+                                <li><strong>Enzyme cắt hạn chế (Restriction Endonuclease):</strong> Cắt ADN ở những vị trí nhận biết đặc hiệu tạo đầu dính.</li>
+                                <li><strong>Enzyme nối (Ligase):</strong> Nối đoạn gene cần chuyển vào thể truyền (Plasmid).</li>
+                                <li><strong>Công nghệ CRISPR-Cas9:</strong> Chỉnh sửa gene chính xác ở cấp độ phân tử.</li>
+                            </ul>
+                        </div>
+                        <div class="figure-box">
+                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80" alt="Ứng dụng công nghệ gene">
+                            <figcaption>Hình 5.1: Ứng dụng kỹ thuật di truyền trong y học và sinh học phân tử.</figcaption>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-panel border-t border-slate-800/80 mt-16 py-8">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-dna text-emerald-500"></i>
-                <span class="font-semibold text-slate-300">Genetics Learning Hub</span>
+    <!-- Interactive Tools Section -->
+    <section id="tools" class="tools-section container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-calculator text-cyan"></i> Công Cụ Tính Toán Di Truyền Tự Động</h2>
+            <p>Nhập số liệu để tính toán nhanh các thông số ADN và tần số allele quần thể.</p>
+        </div>
+
+        <div class="tools-grid">
+            <!-- Tool 1: Calculator ADN -->
+            <div class="tool-card">
+                <h3><i class="fa-solid fa-dna"></i> Máy Tính Thông Số ADN</h3>
+                <div class="input-group">
+                    <label for="adn-length">Nhập chiều dài ADN ($L$ Å):</label>
+                    <input type="number" id="adn-length" placeholder="Ví dụ: 5100">
+                </div>
+                <div class="input-group">
+                    <label for="adn-a">Nhập số Nucleotide loại A (hoặc T):</label>
+                    <input type="number" id="adn-a" placeholder="Ví dụ: 600">
+                </div>
+                <button class="btn btn-primary btn-full" onclick="calculateADN()"><i class="fa-solid fa-gears"></i> Tính Toán Ngay</button>
+                
+                <div id="adn-result" class="result-box hidden">
+                    <h4>Kết quả tính toán:</h4>
+                    <p>Tổng số Nu ($N$): <span id="res-n" class="highlight-val">0</span> Nu</p>
+                    <p>Số Nu loại G = X: <span id="res-gx" class="highlight-val">0</span> Nu</p>
+                    <p>Số liên kết Hydro ($H$): <span id="res-h" class="highlight-val">0</span> liên kết</p>
+                    <p>Khối lượng ADN ($M$): <span id="res-m" class="highlight-val">0</span> ĐvC</p>
+                </div>
             </div>
-            <p>© 2026. Thiết kế & Phát triển bởi: <strong class="text-emerald-400">Thanh Tùng</strong>.</p>
+
+            <!-- Tool 2: Hardy Weinberg Calculator -->
+            <div class="tool-card">
+                <h3><i class="fa-solid fa-chart-pie"></i> Máy Tính Hardy - Weinberg</h3>
+                <div class="input-group">
+                    <label for="hw-aa">Số cá thể kiểu gene $AA$:</label>
+                    <input type="number" id="hw-aa" placeholder="Ví dụ: 360">
+                </div>
+                <div class="input-group">
+                    <label for="hw-Aa">Số cá thể kiểu gene $Aa$:</label>
+                    <input type="number" id="hw-Aa" placeholder="Ví dụ: 480">
+                </div>
+                <div class="input-group">
+                    <label for="hw-aa2">Số cá thể kiểu gene $aa$:</label>
+                    <input type="number" id="hw-aa2" placeholder="Ví dụ: 160">
+                </div>
+                <button class="btn btn-primary btn-full" onclick="calculateHW()"><i class="fa-solid fa-calculator"></i> Phân Tích Quần Thể</button>
+
+                <div id="hw-result" class="result-box hidden">
+                    <h4>Tần số Allele & Cân bằng:</h4>
+                    <p>Tần số Allele $A$ ($p$): <span id="res-p" class="highlight-val">0</span></p>
+                    <p>Tần số Allele $a$ ($q$): <span id="res-q" class="highlight-val">0</span></p>
+                    <p>Trạng thái: <span id="res-status" class="highlight-val">...</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Practice Hub -->
+    <section id="practice" class="practice-section container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-graduation-cap text-green"></i> Luyện Tập Trắc Nghiệm Tương Tác</h2>
+            <p>Kiểm tra kiến thức di truyền học của bạn với bộ câu hỏi chọn lọc.</p>
+        </div>
+
+        <div class="quiz-container">
+            <!-- Quiz Item 1 -->
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <span class="q-number">Câu 1</span>
+                    <p class="q-text">Một đoạn mạch khuôn của gene có trình tự nucleotide: <strong>3'- TAX GGG XAT TTA AXG -5'</strong>. Trình tự mARN được phiên mã từ đoạn gene trên là gì?</p>
+                </div>
+                <div class="quiz-options">
+                    <label class="option-item">
+                        <input type="radio" name="q1" value="A">
+                        <span>A. 5'- ATG XXX GTA AAT TXG -3'</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="q1" value="B" id="q1-correct">
+                        <span>B. 5'- AUG UXX GUA AAU UUG -3'</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="q1" value="C">
+                        <span>C. 5'- UAX GGG XAU UUA AUG -3'</span>
+                    </label>
+                </div>
+                <button class="btn btn-check" onclick="checkQuiz('q1', 'q1-correct', 'q1-explain')">Kiểm tra đáp án</button>
+                <div id="q1-explain" class="explanation-box hidden">
+                    <strong><i class="fa-solid fa-circle-info"></i> Giải chi tiết:</strong> Theo nguyên tắc bổ sung trong phiên mã: A gốc $\rightarrow$ U mARN, T gốc $\rightarrow$ A mARN, G gốc $\rightarrow$ X mARN, X gốc $\rightarrow$ G mARN và mARN có chiều ngược lại với mạch khuôn (5' $\rightarrow$ 3'). Đáp án B đúng.
+                </div>
+            </div>
+
+            <!-- Quiz Item 2 -->
+            <div class="quiz-card" style="margin-top: 24px;">
+                <div class="quiz-header">
+                    <span class="q-number">Câu 2</span>
+                    <p class="q-text">Ở phép lai $AaBb \times AaBb$, tỉ lệ cá thể mang kiểu hình trội về cả 2 tính trạng (A-B-) ở đời F1 là bao nhiêu (biết trội hoàn toàn)?</p>
+                </div>
+                <div class="quiz-options">
+                    <label class="option-item">
+                        <input type="radio" name="q2" value="A">
+                        <span>A. 1/16</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="q2" value="B">
+                        <span>B. 3/16</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="radio" name="q2" value="C" id="q2-correct">
+                        <span>C. 9/16</span>
+                    </label>
+                </div>
+                <button class="btn btn-check" onclick="checkQuiz('q2', 'q2-correct', 'q2-explain')">Kiểm tra đáp án</button>
+                <div id="q2-explain" class="explanation-box hidden">
+                    <strong><i class="fa-solid fa-circle-info"></i> Giải chi tiết:</strong> Tỉ lệ $A- = 3/4$, tỉ lệ $B- = 3/4$. Tích tỉ lệ $A-B- = (3/4) \times (3/4) = 9/16$. Đáp án C đúng.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glossary Section -->
+    <section id="glossary" class="glossary-section container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-spell-check text-purple"></i> Từ Điển Thuật Ngữ Di Truyền</h2>
+        </div>
+        <div class="glossary-grid">
+            <div class="gloss-card">
+                <h4>Allele (A-len)</h4>
+                <p>Các trạng thái biểu hiện khác nhau của cùng một gene quy định một tính trạng.</p>
+            </div>
+            <div class="gloss-card">
+                <h4>Codon (Bộ ba mã hóa)</h4>
+                <p>Cụm 3 nucleotide liên tiếp trên mARN quy định một amino acid hoặc tín hiệu kết thúc.</p>
+            </div>
+            <div class="gloss-card">
+                <h4>Plasmid</h4>
+                <p>Phân tử ADN vòng nhỏ nằm trong tế bào chất của vi khuẩn, được dùng làm thể truyền gene.</p>
+            </div>
+            <div class="gloss-card">
+                <h4>Genome (Hệ gene)</h4>
+                <p>Toàn bộ lượng thông tin di truyền chứa trong bộ NST của một cơ thể sinh vật.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-dna glow-icon"></i>
+                    <span>Genetics<span class="highlight">Hub</span></span>
+                </a>
+                <p>Nền tảng tri thức di truyền học trực quan, hiện đại, tối ưu hóa cho học tập & nghiên cứu.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Danh mục</h4>
+                <ul>
+                    <li><a href="#wiki">Thư viện Wiki</a></li>
+                    <li><a href="#tools">Máy tính ADN</a></li>
+                    <li><a href="#practice">Trắc nghiệm</a></li>
+                    <li><a href="#glossary">Từ điển thuật ngữ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Genetics Learning Hub Pro. Phát triển bởi Đặng Thanh Tùng.</p>
         </div>
     </footer>
 
-    <!-- Giả lập Logic cho việc xem trước nếu app.js chưa kịp load -->
+    <!-- Interactive Scripts -->
     <script>
-        function navigateTo(sectionId) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
-            document.getElementById('section-' + sectionId).classList.remove('hidden');
-            window.scrollTo(0, 0);
+        // ADN Calculator Logic
+        function calculateADN() {
+            const L = parseFloat(document.getElementById('adn-length').value);
+            const A = parseFloat(document.getElementById('adn-a').value);
+            const resBox = document.getElementById('adn-result');
+
+            if (!L || L <= 0 || !A || A < 0) {
+                alert('Vui lòng nhập chiều dài L và số Nu loại A hợp lệ!');
+                return;
+            }
+
+            const N = (L / 3.4) * 2;
+            const G = (N / 2) - A;
+
+            if (G < 0) {
+                alert('Số Nu loại A vượt quá tổng số Nu của gen!');
+                return;
+            }
+
+            const H = 2 * A + 3 * G;
+            const M = N * 300;
+
+            document.getElementById('res-n').innerText = Math.round(N).toLocaleString();
+            document.getElementById('res-gx').innerText = Math.round(G).toLocaleString();
+            document.getElementById('res-h').innerText = Math.round(H).toLocaleString();
+            document.getElementById('res-m').innerText = Math.round(M).toLocaleString();
+
+            resBox.classList.remove('hidden');
         }
-        function switchTheoryTab(tabId) {
-            document.querySelectorAll('.theory-content').forEach(sec => sec.classList.add('hidden'));
-            document.getElementById('theory-content-' + tabId).classList.remove('hidden');
-            
-            document.querySelectorAll('.theory-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-emerald-600', 'text-white');
-                btn.classList.add('bg-slate-800/50', 'text-slate-300');
+
+        // Hardy Weinberg Calculator Logic
+        function calculateHW() {
+            const AA = parseFloat(document.getElementById('hw-aa').value) || 0;
+            const Aa = parseFloat(document.getElementById('hw-Aa').value) || 0;
+            const aa = parseFloat(document.getElementById('hw-aa2').value) || 0;
+            const resBox = document.getElementById('hw-result');
+
+            const total = AA + Aa + aa;
+            if (total <= 0) {
+                alert('Vui lòng nhập số lượng cá thể!');
+                return;
+            }
+
+            const p = (AA + Aa / 2) / total;
+            const q = 1 - p;
+
+            document.getElementById('res-p').innerText = p.toFixed(4);
+            document.getElementById('res-q').innerText = q.toFixed(4);
+
+            const expectedAA = Math.pow(p, 2) * total;
+            const isBalanced = Math.abs(AA - expectedAA) < 2;
+            document.getElementById('res-status').innerText = isBalanced ? 'Cân bằng di truyền' : 'Chưa cân bằng';
+
+            resBox.classList.remove('hidden');
+        }
+
+        // Quiz Checker Logic
+        function checkQuiz(qName, correctId, explainId) {
+            const selected = document.querySelector(`input[name="${qName}"]:checked`);
+            const explainBox = document.getElementById(explainId);
+            if (!selected) {
+                alert("Vui lòng chọn một đáp án!");
+                return;
+            }
+            explainBox.classList.remove('hidden');
+            if (selected.id === correctId) {
+                explainBox.style.borderLeft = "4px solid var(--accent-green)";
+            } else {
+                explainBox.style.borderLeft = "4px solid var(--accent-red)";
+            }
+        }
+
+        // Real-time Content Filter / Search
+        function filterContent() {
+            const query = document.getElementById('globalSearch').value.toLowerCase();
+            const articles = document.querySelectorAll('.searchable');
+
+            articles.forEach(article => {
+                const text = article.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = query === '' ? 'block' : 'none';
+                }
             });
-            let activeBtn = document.getElementById('tab-btn-' + tabId);
-            activeBtn.classList.remove('bg-slate-800/50', 'text-slate-300');
-            activeBtn.classList.add('bg-emerald-600', 'text-white');
-        }
-        function switchLabTool(toolId) {
-            document.querySelectorAll('.lab-tool-content').forEach(sec => sec.classList.add('hidden'));
-            document.getElementById('lab-tool-' + toolId).classList.remove('hidden');
-            
-            document.querySelectorAll('.lab-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-emerald-600', 'text-white');
-                btn.classList.add('text-slate-400');
-            });
-            let activeBtn = document.getElementById('lab-tab-' + toolId);
-            activeBtn.classList.remove('text-slate-400');
-            activeBtn.classList.add('bg-emerald-600', 'text-white');
-        }
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
     </script>
-    <script src="js/app.js"></script>
 </body>
 </html>
