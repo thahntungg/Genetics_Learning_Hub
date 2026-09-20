@@ -233,18 +233,47 @@
                                     <i class="fa-solid fa-check-circle mr-1.5"></i> Đã Xác Minh
                                 </span>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                                <!-- Đã sửa ảnh thí nghiệm quy luật Mendel -->
-                                <img src="watermarked_img_10515150029207394318.png" alt="Mendel Peas Genetics" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700">
-                                <div class="space-y-4">
-                                    <h4 class="font-bold text-emerald-400 text-xl border-l-4 border-emerald-500 pl-3">Gregor Johann Mendel (1822–1884)</h4>
+
+                            <!-- Ảnh mới & Nội dung lý thuyết chi tiết -->
+                            <div class="space-y-6 my-6">
+                                <div class="w-full bg-slate-950/60 p-3 rounded-2xl border border-slate-700/80">
+                                    <img src="edited-image.png" alt="Sơ đồ thí nghiệm các quy luật di truyền của Mendel" class="w-full h-auto object-contain rounded-xl shadow-lg">
+                                </div>
+
+                                <div class="space-y-5">
+                                    <h4 class="font-bold text-emerald-400 text-xl border-l-4 border-emerald-500 pl-3">1. Gregor Mendel & Thí Nghiệm Đậu Hà Lan</h4>
                                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
-                                        Mendel được coi là <strong>Cha đẻ của Di truyền học</strong>. Qua nhiều năm trồng và lai tạo cây Đậu Hà Lan (Pisum sativum), ông đã khám phá ra các quy luật cơ bản về di truyền, đặt nền móng cho khoa học di truyền hiện đại.
+                                        Gregor Johann Mendel (1822–1884) được tôn vinh là <strong>Cha đẻ của Di truyền học</strong>. Nhờ phương pháp nghiên cứu khoa học độc đáo – phân tích định lượng kết quả lai ở từng thế hệ trên cây Đậu Hà Lan (<em>Pisum sativum</em>) – ông đã phát hiện ra các nhân tố di truyền (ngày nay gọi là <strong>Alen/Gen</strong>).
                                     </p>
-                                    <ul class="space-y-2 mt-4 text-sm text-slate-300">
-                                        <li class="flex items-start"><i class="fa-solid fa-angle-right mt-1 mr-2 text-emerald-500"></i> <strong>Quy luật phân ly:</strong> Mỗi tính trạng do một cặp alen quy định. Trong quá trình phát sinh giao tử, các alen phân ly đồng đều.</li>
-                                        <li class="flex items-start"><i class="fa-solid fa-angle-right mt-1 mr-2 text-emerald-500"></i> <strong>Quy luật phân ly độc lập:</strong> Các cặp alen quy định các tính trạng khác nhau phân ly độc lập với nhau.</li>
-                                    </ul>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                        <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
+                                            <h5 class="text-emerald-400 font-bold text-base flex items-center">
+                                                <i class="fa-solid fa-seedling mr-2"></i> QL Phân Ly (Lai 1 cặp tính trạng)
+                                            </h5>
+                                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                                                Khi cho bố mẹ thuần chủng khác nhau về 1 cặp tính trạng tương phản (Ví dụ: <strong>Quả xanh - Green Pod ($G$)</strong> vs <strong>Quả vàng - Yellow Pod ($g$)</strong>):
+                                            </p>
+                                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside marker:text-emerald-400">
+                                                <li><strong>Thế hệ P1:</strong> $GG$ (Quả xanh) $\times$ $gg$ (Quả vàng).</li>
+                                                <li><strong>Thế hệ F1:</strong> 100% $Gg$ (Quả xanh - biểu hiện tính trạng Trội).</li>
+                                                <li><strong>Cho F1 tự thụ phấn ($F1 \times F1$):</strong> Tạo ra F2 với tỷ lệ kiểu gen là $1 GG : 2 Gg : 1 gg$, cho ra tỷ lệ kiểu hình <strong>3 Quả Xanh : 1 Quả Vàng</strong>.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
+                                            <h5 class="text-emerald-400 font-bold text-base flex items-center">
+                                                <i class="fa-solid fa-table-cells mr-2"></i> QL Phân Ly Độc Lập (Lai 2 cặp tính trạng)
+                                            </h5>
+                                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                                                Xét sự di truyền đồng thời của tính trạng màu sắc hạt (Hạt vàng $Y$ / Hạt xanh $y$) và hình dạng hạt (Hạt trơn $S$ / Hạt nhăn $s$):
+                                            </p>
+                                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside marker:text-emerald-400">
+                                                <li>Các cặp alen quy định các tính trạng khác nhau phân ly độc lập trong giảm phân hình thành giao tử.</li>
+                                                <li>Khi cho cá thể dị hợp 2 cặp gen ($YySs$) tự thụ phấn, bảng <strong>Khung Punnett (16 ô)</strong> cho ra tỷ lệ kiểu hình F2 kinh điển: <strong>9 Vàng-Trơn : 3 Vàng-Nhăn : 3 Xanh-Trơn : 1 Xanh-Nhăn</strong>.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -254,24 +283,52 @@
                             <div class="flex flex-wrap items-center justify-between border-b border-slate-700/80 pb-5 gap-4">
                                 <div>
                                     <span class="text-xs font-bold text-teal-400 uppercase tracking-widest">Sinh Học Phân Tử</span>
-                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Cấu Trúc DNA & Cơ Chế Dịch Mã</h2>
+                                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Cấu Trúc DNA, Phiên Mã & Cơ Chế Dịch Mã</h2>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                                <div class="space-y-4 order-2 md:order-1">
-                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">Thuyết Trung Tâm (Central Dogma)</h4>
-                                    <p class="text-sm text-slate-300 leading-relaxed text-justify">
-                                        Luồng thông tin di truyền trong tế bào sinh vật chảy theo một chiều: Từ DNA phiên mã tạo ra RNA, và từ RNA dịch mã để tổng hợp nên chuỗi Polypeptide (Protein), từ đó biểu hiện thành tính trạng.
-                                    </p>
-                                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 mt-4 text-center font-mono text-teal-300">
-                                        DNA ➔ Transcription ➔ mRNA ➔ Translation ➔ Protein
-                                    </div>
-                                    <p class="text-sm text-slate-300 leading-relaxed mt-4">
-                                        <strong>Nguyên tắc bổ sung:</strong> Adenine (A) liên kết với Thymine (T) bằng 2 liên kết hidro. Guanine (G) liên kết với Cytosine (C) bằng 3 liên kết hidro.
-                                    </p>
+
+                            <!-- Ảnh mới & Nội dung lý thuyết chi tiết -->
+                            <div class="space-y-6 my-6">
+                                <div class="w-full bg-slate-950/60 p-3 rounded-2xl border border-slate-700/80">
+                                    <img src="edited-image_2.png" alt="Sơ đồ chi tiết quá trình Phiên mã và Dịch mã sinh học" class="w-full h-auto object-contain rounded-xl shadow-lg">
                                 </div>
-                                <!-- Đã sửa ảnh sơ đồ DNA Phiên mã & Dịch mã -->
-                                <img src="watermarked_img_4395598140730368563.png" alt="DNA Transcription and Translation" class="w-full h-64 object-cover rounded-xl shadow-lg border border-slate-700 order-1 md:order-2">
+
+                                <div class="space-y-5">
+                                    <h4 class="font-bold text-teal-400 text-xl border-l-4 border-teal-500 pl-3">Thuyết Trung Tâm (Central Dogma) & Cơ Chế Tổng Hợp Protein</h4>
+                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
+                                        Luồng thông tin di truyền từ nhân tế bào ra biểu hiện thành tính trạng tuân theo cơ chế: <strong>DNA $\rightarrow$ Phiên mã (Transcription) $\rightarrow$ mRNA $\rightarrow$ Dịch mã (Translation) $\rightarrow$ Chuỗi Polypeptide (Protein)</strong>.
+                                    </p>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                        <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
+                                            <h5 class="text-teal-400 font-bold text-base flex items-center">
+                                                <i class="fa-solid fa-microscope mr-2"></i> 1. Phiên Mã (Transcription)
+                                            </h5>
+                                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                                                Diễn ra bên trong <strong>Nhân tế bào (Nucleus)</strong>:
+                                            </p>
+                                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside marker:text-teal-400">
+                                                <li>Enzym <strong>RNA Polymerase</strong> bám vào DNA, tháo xoắn và trượt dọc mạch gốc (chiều $3' \rightarrow 5'$) để tổng hợp phân tử <strong>mRNA</strong> theo chiều $5' \rightarrow 3'$.</li>
+                                                <li>Nguyên tắc bổ sung: $A-U$, $T-A$, $G-C$, $C-G$.</li>
+                                                <li>Sau khi hoàn tất, phân tử mRNA đi qua <strong>Lỗ nhân (Nuclear pore)</strong> thoát ra ngoài <strong>Tế bào chất (Cytoplasm)</strong>.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/80 space-y-3">
+                                            <h5 class="text-teal-400 font-bold text-base flex items-center">
+                                                <i class="fa-solid fa-dna mr-2"></i> 2. Dịch Mã (Translation)
+                                            </h5>
+                                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                                                Diễn ra tại <strong>Tế bào chất (Cytoplasm)</strong> với sự tham gia của Ribosome:
+                                            </p>
+                                            <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside marker:text-teal-400">
+                                                <li><strong>Mở đầu (Initiation):</strong> Ribosome (tiểu đơn vị bé & lớn) bám vào mã mở đầu <code>AUG</code> trên mRNA. Phân tử tRNA mang axit amin Methionine (Met) khớp bộ ba đối mã (Anticodon).</li>
+                                                <li><strong>Kéo dài:</strong> Ribosome dịch chuyển theo từng Codon. Các tRNA nối tiếp mang axit amin khớp bổ sung, tạo liên kết Peptide hình thành chuỗi <strong>Amino Acid Chain</strong>.</li>
+                                                <li><strong>Kết thúc:</strong> Khi Ribosome gặp mã kết thúc (<code>UAA</code>, <code>UAG</code>, <code>UGA</code>), chuỗi Polypeptide tách ra để gấp cuộn thành Protein hoàn chỉnh.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -471,31 +528,38 @@
             </div>
         </section>
 
-        <!-- ================= SECTION 4: QUIZ ================= -->
+        <!-- ================= SECTION 4: QUIZ (SỬA LỖI HIỂN THỊ HÀNG) ================= -->
         <section id="section-quiz" class="page-section hidden py-12">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-white">Kiểm Tra Kiến Thức</h2>
-                    <p class="text-slate-400 mt-2">10 câu hỏi trắc nghiệm ngẫu nhiên từ cơ bản đến nâng cao</p>
+                    <p class="text-slate-400 mt-2">Các câu hỏi trắc nghiệm ngẫu nhiên từ cơ bản đến nâng cao</p>
                 </div>
-                <!-- Demo Quiz Card -->
+                
+                <!-- Quiz Container Chuẩn (Sẵn sàng tương tác dynamic qua JS) -->
                 <div id="quiz-card" class="glass-card rounded-2xl p-6 sm:p-10 space-y-6 border-t-4 border-t-emerald-500">
                     <div class="flex justify-between items-center text-sm font-semibold text-slate-400 mb-2">
-                        <span>Câu hỏi 1/10</span>
-                        <span class="text-amber-400"><i class="fa-solid fa-fire mr-1"></i> Mức độ: Cơ bản</span>
+                        <span id="quiz-progress-text">Câu hỏi 1/10</span>
+                        <span id="quiz-difficulty-tag" class="text-amber-400"><i class="fa-solid fa-fire mr-1"></i> Mức độ: Cơ bản</span>
                     </div>
+
                     <h3 id="quiz-question-text" class="text-xl sm:text-2xl font-bold text-white leading-snug">
                         Trong cấu trúc không gian của phân tử DNA, các base nitơ giữa 2 mạch liên kết với nhau bằng loại liên kết nào?
                     </h3>
+
+                    <!-- Khung chứa danh sách đáp án sạch -->
                     <div id="quiz-options-container" class="space-y-3 pt-4">
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">A. Liên kết ion</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-500/20 text-white transition-all font-medium ring-2 ring-emerald-500"><i class="fa-solid fa-circle-check mr-2 text-emerald-400"></i> B. Liên kết hydro (Đúng)</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">C. Liên kết cộng hóa trị</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-emerald-600 hover:border-emerald-500 text-slate-200 transition-all font-medium">D. Liên kết peptide</button>
+                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-700 text-slate-200 transition-all font-medium">A. Liên kết ion</button>
+                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-700 text-slate-200 transition-all font-medium">B. Liên kết hydro</button>
+                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-700 text-slate-200 transition-all font-medium">C. Liên kết cộng hóa trị</button>
+                        <button class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-700 text-slate-200 transition-all font-medium">D. Liên kết peptide</button>
                     </div>
-                    <div id="quiz-explanation-box" class="p-5 rounded-xl bg-emerald-900/20 border border-emerald-500/30 text-sm text-slate-200 mt-6">
-                        <p id="quiz-explanation-text"><strong>Giải thích:</strong> Theo nguyên tắc bổ sung, A liên kết với T bằng 2 liên kết hydro, G liên kết với C bằng 3 liên kết hydro. Điều này giúp hai mạch của DNA gắn kết nhưng cũng dễ dàng tách ra trong quá trình nhân đôi.</p>
+
+                    <!-- Khung giải thích (Mặc định ẩn, bật lên khi bấm chọn đáp án) -->
+                    <div id="quiz-explanation-box" class="hidden p-5 rounded-xl bg-emerald-900/20 border border-emerald-500/30 text-sm text-slate-200 mt-6">
+                        <p id="quiz-explanation-text"><strong>Giải thích:</strong> Theo nguyên tắc bổ sung, Adenine (A) liên kết với Thymine (T) bằng 2 liên kết hydro, Guanine (G) liên kết với Cytosine (C) bằng 3 liên kết hydro.</p>
                     </div>
+
                     <div class="flex justify-end pt-4">
                         <button id="quiz-next-btn" class="px-8 py-3.5 rounded-xl gradient-bg text-white font-bold text-sm shadow-lg hover:shadow-emerald-500/40 transition-all">Câu Tiếp Theo <i class="fa-solid fa-arrow-right ml-2"></i></button>
                     </div>
@@ -558,6 +622,7 @@
         </div>
     </footer>
 
+    <!-- Logic xem trước chuyển trang -->
     <script>
         function navigateTo(sectionId) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
@@ -573,8 +638,10 @@
                 btn.classList.add('bg-slate-800/50', 'text-slate-300');
             });
             let activeBtn = document.getElementById('tab-btn-' + tabId);
-            activeBtn.classList.remove('bg-slate-800/50', 'text-slate-300');
-            activeBtn.classList.add('bg-emerald-600', 'text-white');
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-slate-800/50', 'text-slate-300');
+                activeBtn.classList.add('bg-emerald-600', 'text-white');
+            }
         }
         function switchLabTool(toolId) {
             document.querySelectorAll('.lab-tool-content').forEach(sec => sec.classList.add('hidden'));
@@ -585,8 +652,10 @@
                 btn.classList.add('text-slate-400');
             });
             let activeBtn = document.getElementById('lab-tab-' + toolId);
-            activeBtn.classList.remove('text-slate-400');
-            activeBtn.classList.add('bg-emerald-600', 'text-white');
+            if(activeBtn) {
+                activeBtn.classList.remove('text-slate-400');
+                activeBtn.classList.add('bg-emerald-600', 'text-white');
+            }
         }
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
